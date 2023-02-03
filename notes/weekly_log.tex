@@ -1,0 +1,270 @@
+% imports
+\documentclass[11pt, reqno]{amsart}
+\usepackage[margin=1in]{geometry}    
+\geometry{letterpaper}       
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Deactivate to begin paragraphs with an indent rather than an empty line
+\usepackage{amsfonts, amscd, amssymb, amsthm, amsmath}
+\usepackage{pdfsync}  %leaves makers for tex searching
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage[pdftex,bookmarks]{hyperref}
+\usepackage{biblatex}
+
+\addbibresource{bib.bib} % Import the bibliography
+
+
+\setlength\parindent{0pt}
+
+\hypersetup{
+  colorlinks=true,
+  allcolors=blue
+}
+
+%%% Theorems %%%--------------------------------------------------------- 
+\theoremstyle{plain}
+    \newtheorem{thm}{Theorem}[section]
+    \numberwithin{thm}{subsection}
+    \newtheorem{lemma}[thm]{Lemma}
+    \newtheorem{prop}[thm]{Proposition}
+    \newtheorem{cor}[thm]{Corollary}
+\theoremstyle{definition}
+    \newtheorem{defn}[thm]{Definition}
+    \newtheorem{remark}{Remark}
+
+
+%%% Environments %%%--------------------------------------------------------- 
+\newenvironment{ans}{\color{black}\medskip \paragraph*{\emph{Answer}.}}{\hfill \break  $~\!\!$ \dotfill \medskip }
+\newenvironment{sketch}{\medskip \paragraph*{\emph{Proof sketch}.}}{ \medskip }
+\newenvironment{summary}{\medskip \paragraph*{\emph{Summary}.}}{  \hfill \break  \rule{1.5cm}{0.4pt} \medskip }
+\newcommand\Ans[1]{\color{black}\hfill \emph{Answer:} {#1}}
+
+
+%%% Pictures %%%--------------------------------------------------------- 
+%%% If you need to draw pictures, tikzpicture is one good option. Here are some basic things I always use:
+\usepackage{tikz}
+\usetikzlibrary{arrows, decorations.text,calc,arrows.meta}
+\tikzstyle{V}=[draw, fill =black, circle, inner sep=0pt, minimum size=2pt]
+\tikzstyle{bV}=[draw, fill =black, circle, inner sep=0pt, minimum size=3.5pt]
+\newcommand\TikZ[1]{\begin{matrix}\begin{tikzpicture}#1\end{tikzpicture}\end{matrix}}
+\definecolor{r}{RGB}{227, 242, 253}
+\definecolor{o}{RGB}{187, 222, 251}
+\definecolor{y}{RGB}{144, 202, 249}
+\definecolor{g}{RGB}{66, 165, 245}
+\definecolor{b}{RGB}{30, 136, 229}
+
+%%% Color  %%%---------------------------------------------------------
+\usepackage{color}
+\newcommand{\blue}[1]{{\color{blue}#1}}
+\newcommand{\NOTE}[1]{{\color{blue}#1}}
+\newcommand{\MOVED}[1]{{\color{gray}#1}}
+
+
+%%% Alphabets %%%---------------------------------------------------------
+%%% Some shortcuts for my commonly used special alphabets and characters.
+\def\cA{\mathcal{A}}\def\cB{\mathcal{B}}\def\cC{\mathcal{C}}\def\cD{\mathcal{D}}\def\cE{\mathcal{E}}\def\cF{\mathcal{F}}\def\cG{\mathcal{G}}\def\cH{\mathcal{H}}\def\cI{\mathcal{I}}\def\cJ{\mathcal{J}}\def\cK{\mathcal{K}}\def\cL{\mathcal{L}}\def\cM{\mathcal{M}}\def\cN{\mathcal{N}}\def\cO{\mathcal{O}}\def\cP{\mathcal{P}}\def\cQ{\mathcal{Q}}\def\cR{\mathcal{R}}\def\cS{\mathcal{S}}\def\cT{\mathcal{T}}\def\cU{\mathcal{U}}\def\cV{\mathcal{V}}\def\cW{\mathcal{W}}\def\cX{\mathcal{X}}\def\cY{\mathcal{Y}}\def\cZ{\mathcal{Z}}
+
+\def\AA{\mathbb{A}} \def\BB{\mathbb{B}} \def\CC{\mathbb{C}} \def\DD{\mathbb{D}} \def\EE{\mathbb{E}} \def\FF{\mathbb{F}} \def\GG{\mathbb{G}} \def\HH{\mathbb{H}} \def\II{\mathbb{I}} \def\JJ{\mathbb{J}} \def\KK{\mathbb{K}} \def\LL{\mathbb{L}} \def\MM{\mathbb{M}} \def\NN{\mathbb{N}} \def\OO{\mathbb{O}} \def\PP{\mathbb{P}} \def\QQ{\mathbb{Q}} \def\RR{\mathbb{R}} \def\SS{\mathbb{S}} \def\TT{\mathbb{T}} \def\UU{\mathbb{U}} \def\VV{\mathbb{V}} \def\WW{\mathbb{W}} \def\XX{\mathbb{X}} \def\YY{\mathbb{Y}} \def\ZZ{\mathbb{Z}}  
+
+\def\fa{\mathfrak{a}} \def\fb{\mathfrak{b}} \def\fc{\mathfrak{c}} \def\fd{\mathfrak{d}} \def\fe{\mathfrak{e}} \def\ff{\mathfrak{f}} \def\fg{\mathfrak{g}} \def\fh{\mathfrak{h}} \def\fj{\mathfrak{j}} \def\fk{\mathfrak{k}} \def\fl{\mathfrak{l}} \def\fm{\mathfrak{m}} \def\fn{\mathfrak{n}} \def\fo{\mathfrak{o}} \def\fp{\mathfrak{p}} \def\fq{\mathfrak{q}} \def\fr{\mathfrak{r}} \def\fs{\mathfrak{s}} \def\ft{\mathfrak{t}} \def\fu{\mathfrak{u}} \def\fv{\mathfrak{v}} \def\fw{\mathfrak{w}} \def\fx{\mathfrak{x}} \def\fy{\mathfrak{y}} \def\fz{\mathfrak{z}}
+\def\fgl{\mathfrak{gl}}  \def\fsl{\mathfrak{sl}}  \def\fso{\mathfrak{so}}  \def\fsp{\mathfrak{sp}}  
+\def\GL{\mathrm{GL}} \def\SL{\mathrm{SL}}  \def\SP{\mathrm{SP}} \def\O{\mathrm{O}}
+
+\def\<{\langle} \def\>{\rangle}
+\usepackage{mathabx}
+\def\acts{\lefttorightarrow}
+\def\ad{\mathrm{ad}} 
+\def\Aut{\mathrm{Aut}}
+\def\Ann{\mathrm{Ann}}
+\def\dim{\mathrm{dim}} 
+\def\End{\mathrm{End}} 
+\def\ev{\mathrm{ev}} 
+\def\Fr{\mathcal{F}\mathrm{r}}
+\def\half{\hbox{$\frac12$}}
+\def\Hom{\mathrm{Hom}} 
+\def\id{\mathrm{id}} 
+\def\sgn{\mathrm{sgn}}  
+\def\supp{\mathrm{supp}}  
+\def\Tor{\mathrm{Tor}}
+\def\tr{\mathrm{tr}} 
+\def\vep{\varepsilon}
+\def\f{\varphi}
+
+
+\def\Obj{\mathrm{Obj}}
+\def\normeq{\unlhd}
+\def\Set{{\cS\mathrm{et}}}
+\def\Fin{{\cF\mathrm{inSet}}}
+\def\Set{{\cS\mathrm{et}}}
+\def\Grp{{\cG\mathrm{rp}}}
+\def\Ab{{\cA\mathrm{b}}}
+\def\Mod{{\cM\mathrm{od}}}
+\def\ab{\mathrm{ab}}
+\def\lcm{\mathrm{lcm}}
+\def\ZZn{\ZZ/n\ZZ}
+\def\ses{0\rightarrow X \xrightarrow{f} Y \xrightarrow{g} Z \rightarrow 0}
+\def\tsfs{\Sigma^{\pm}_d}
+
+
+\newcommand{\Hint}[1]{\hfill{\small [\emph{Hint:} {#1}]}}
+\newcommand\Cmd[1]{$\backslash$\texttt{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Weekly Log}
+\author{Gabriela Brown\\ Math B49 \\ 02/16/2022}
+
+\begin{document}
+\maketitle
+
+\section{Week 1}
+\begin{itemize}
+    \item overview of class
+    \item some examples
+\end{itemize}
+
+\section*{Week 2}
+\textit{Summary:} This week we introduced the basic terminology of shift spaces and subshifts of finite type. We saw how to characterize a subshift by its language or by its set of forbidden words. Finally we introduced the notion of a higher block representation of an SFT, which for any SFT lets us find an alphabet that gives a forbidden word set with word length at most two. This property will be necessary in order to view SFTs as matrices.
+
+\subsection*{I.1 Shift Spaces}
+\begin{defn}[Basic terminology]
+    // TODO
+    Alphabet $\cA$, two sided full shift $\Sigma^{\pm}_d$, word, empty word, concatenation, shift map, Cylinder $[x]_i^j$.
+\end{defn}
+
+// TODO: an interlude into topology
+Note: the Product topology is the coarsest topology that makes all projections open.
+\begin{defn}
+    The product topology on $\tsfs$ with regards to the discrete topology on $\cA$. This implies that $\tsfs$ is a compact topological space. It is also metrizable, for example let $0 < \alpha < 1$, then the following induces the product topology:
+    $$d(x,y) = \begin{cases}
+        \alpha^{\text{min}\{|k|:x_k \neq y_k\}} & \text{for $x \neq y$} \\ 
+        0
+    \end{cases}$$
+\end{defn}
+
+\begin{lemma}
+    Cylinders are both open and closed. 
+\end{lemma}
+\begin{proof}
+    // tODO
+\end{proof}
+
+\begin{cor}
+    The $\tsfs$ is totally disconnected.  
+\end{cor}
+\begin{proof}
+    // TODO
+\end{proof}
+
+\subsection*{I.2 Subshifts and Languages}
+\begin{defn}
+    $X \subseteq \tsfs$ is a shift space if $X$ is $\sigma$-invariant and closed.
+\end{defn}
+
+\begin{defn}
+    $\sigma|_{X}$ is a subshift.
+\end{defn}
+
+\begin{defn}[Languages]
+    Let $n \in \NN$, $\cL_n(x) = \{w : |w| = n, w \in x\}$. The empty word is denoted $\varepsilon$ and the \textit{language} of $X$ is $\cL(X) = \bigcup_{n=0}^\infty \cL_n(X).$
+
+    We call a subset $\cL \subseteq \cL(\tsfs)$ a \textit{one-sided language} if 
+    \begin{itemize}
+        \item $\forall w \in \cL$, all subwords $v$ of $w$ are also in $\cL$, and 
+        \item $\forall w \in \cL$ there exists some letter $l \in \cA$ such that $wl \in \cL$.
+    \end{itemize}
+
+    For a \textit{two-sided language} the second condition needs two letters $ m, l \in \cA$ such that $mwl \in \cL$.
+\end{defn}
+
+A fundamental idea: shift spaces and languages are the same object:
+
+\begin{lemma}
+    Let $\cL \subseteq \cL (\tsfs)$ be a two-sided language. Then $X(\cL) = \{x \in \tsfs : x_{[i,j]} \in \cL \forall i\leq j \in \ZZ\}$ is a shift space. 
+\end{lemma}
+
+\begin{proof}
+    // TODO
+\end{proof}
+
+Shift spaces can also be described by the set of forbidden words. 
+
+\begin{defn} Let $X \subseteq \tsfs$ be a shift space. $\cF_x = \cL(\tsfs) \ \cL(X)$ is the set of forbidden words.
+\end{defn}
+
+You have to be careful when giving $\cF_x$ that it's complement is indeed a language. 
+
+\begin{itemize}
+    \item[e.g.] $d = 2, \cF = \emptyset \Rightarrow x = \tsfs$
+    \item[e.g.] $d = 2, \cF = \{11\}$ The Golden Mean Shift 
+    \item[e.g.] $d = 2, \cF_x = \{10^{2k+1}1 : k \in \NN\}$ The even shift. (Note: this is not a SFT, because the forbidden set is not finite. It is what's called an S-Gap shift) 
+\end{itemize}
+
+Given an arbitrary subset of words, you can fill in the set to obtain a forbidden word set that gives the language of a shift space. Let $\cF \subseteq \cL(\tsfs)$. Call $\overline{\cF} = \{w \in \cL(\tsfs) : w \text{ has a subword in } \cF \}$.Then $\overline{\cF}$ is a forbidden set and $X_{\overline{\cF}} = X(\cL(\tsfs \setminus \overline{\cF}))$ is a shift space. 
+
+\begin{defn}
+    A shift space $X$ is irreducible if $\forall u,,v \in \cL(X)$ there exists a word $w \in \cL(X)$ such that $uwv \in \cL(X)$. 
+\end{defn}
+The idea of irreducibility is you can connect arbitrary words in the language. 
+
+// TODO: make typesetting math L\&M
+\begin{defn}
+    We say a shift space $\mathsf{X} \subseteq \tsfs$ is a \textit{subshift of finite type} if there exist a finite set of forbidden words  $\cF \subseteq \cL(\tsfs)$ such that $X_\cF = \mathsf{X}$.
+\end{defn}
+
+You can always rewrite an SFT to another SFT whose forbidden words have a max length of 2 by increasing the alphabet. This is nice because it makes it much easier to check if something is in the shift space: you only need to look at adjacent elements (window of length 2). 
+
+\begin{defn}
+    Let $X$ be a shift space, $n \in \NN$. We call $B = \cL_n(X)$ the set of words of length $n$ in the alphabet. We assign every element of $B$ a letter in a new alphabet $\{a_0 , \dots, a_{n-1}\}$.
+\end{defn}
+
+// tODO: what is this defn, why do we care
+\begin{defn}
+    $X^{[N]} = \beta_N(X)$ where $\beta_N: X \rightarrow B^\ZZ$ by $(\beta_N(X))_k = x_k\dots x_{k+N-1}$. 
+\end{defn}
+
+We can create a \textit{higher block representation} of $X$ and order $N$ by e.g. give $x = \dots x_{-3}x_{-2}x_{-1}\textbf{.}x_0x_1x_2 \dots$ and $N = 3$, 
+
+$$y = \dots \begin{bmatrix}x_{-1} \\ x_{-2} \\ x_{-3}\end{bmatrix}
+\begin{bmatrix}x_{0} \\ x_{-1} \\ x_{-2}\end{bmatrix}
+\begin{bmatrix}x_{1} \\ x_{0} \\ x_{-1}\end{bmatrix}
+\textbf{.}
+\begin{bmatrix}x_{2} \\ x_{1} \\ x_{0}\end{bmatrix}
+\begin{bmatrix}x_{3} \\ x_{2} \\ x_{1}\end{bmatrix}
+\dots$$
+
+\begin{defn}
+    Let $u = u_1\dots u_N, v = v_1\dots v_N$. We say $u$ and $v$ \textit{progressively overlap} if $u_2 \dots u_N = v_1 \dots v_{N-1}$.
+\end{defn}
+
+// tODO: what does this mean?
+i.e. If $uv$ occurs in the language of the higher blog representation of $X$ (i.e. in $\beta_N(X)$ for some $N$) then $u$ and $v$ progressively overlap.
+
+\begin{prop}
+    $\left(X^{[N]}, \sigma\right)$ is a shift space. Moreover it is topologically conjugate to $\left(X, \sigma\right)$ for all $N \in \NN$
+\end{prop}
+
+\begin{proof}
+    // TODO
+\end{proof}
+
+We like block representations because they let us go to $\cF$ with words of length 2 by moving to a higher alphabet. And then we can represent shifts as matrices because we only ever need to be worried about what is allowed in the immediate next step. 
+
+TODO:
+- go back and fill in proofs
+- resolve misunderstandings noted 
+- identify relevant sections of L\&M for exercises 
+TODO: 
+- do problems
+- integrate with L\&M notes
+Exercises:
+- the metric given here induces the product topology
+
+\printbibliography
+
+
+
+
+
+\end{document}
