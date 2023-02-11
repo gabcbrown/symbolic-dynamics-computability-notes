@@ -1,0 +1,14 @@
+.DS_Store
+*/*.DS_Store
+*/*.log
+*/*.aux
+*/*.fdb_latexmk
+*/*fls
+*/*.out
+*/*.pdfsync
+*/*.synctex.gz
+*/*.bbl
+*/*.bcf
+*/*.blg
+*/*.run.xml
+*/__latexindent_temp.tex
