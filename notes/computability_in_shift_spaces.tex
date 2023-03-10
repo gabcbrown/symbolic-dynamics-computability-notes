@@ -1,0 +1,265 @@
+% imports
+\documentclass[11pt, reqno]{amsart}
+\usepackage[margin=1in]{geometry}    
+\geometry{letterpaper}       
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Deactivate to begin paragraphs with an indent rather than an empty line
+\usepackage{amsfonts, amscd, amssymb, amsthm, amsmath}
+\usepackage{pdfsync}  %leaves makers for tex searching
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage[pdftex,bookmarks]{hyperref}
+\usepackage{biblatex}
+
+\addbibresource{bib.bib} % Import the bibliography
+
+
+\setlength\parindent{0pt}
+
+\hypersetup{
+  colorlinks=true,
+  allcolors=blue
+}
+
+%%% Theorems %%%--------------------------------------------------------- 
+\theoremstyle{plain}
+    \newtheorem{thm}{Theorem}[section]
+    % \numberwithin{thm}{subsection}
+    \newtheorem{lemma}[thm]{Lemma}
+    \newtheorem{prop}[thm]{Proposition}
+    \newtheorem{cor}[thm]{Corollary}
+\theoremstyle{definition}
+    \newtheorem{defn}[thm]{Definition}
+    \newtheorem{remark}{Remark}
+
+
+%%% Environments %%%--------------------------------------------------------- 
+\newenvironment{ans}{\color{black}\medskip \paragraph*{\emph{Answer}.}}{\hfill \break  $~\!\!$ \dotfill \medskip }
+\newenvironment{sketch}{\medskip \paragraph*{\emph{Proof sketch}.}}{ \medskip }
+\newenvironment{summary}{\medskip \paragraph*{\emph{Summary}.}}{  \hfill \break  \rule{1.5cm}{0.4pt} \medskip }
+\newcommand\Ans[1]{\color{black}\hfill \emph{Answer:} {#1}}
+
+
+%%% Pictures %%%--------------------------------------------------------- 
+%%% If you need to draw pictures, tikzpicture is one good option. Here are some basic things I always use:
+\usepackage{tikz}
+\usetikzlibrary{arrows, decorations.text,calc,arrows.meta}
+\tikzstyle{V}=[draw, fill =black, circle, inner sep=0pt, minimum size=2pt]
+\tikzstyle{bV}=[draw, fill =black, circle, inner sep=0pt, minimum size=3.5pt]
+\newcommand\TikZ[1]{\begin{matrix}\begin{tikzpicture}#1\end{tikzpicture}\end{matrix}}
+\definecolor{r}{RGB}{227, 242, 253}
+\definecolor{o}{RGB}{187, 222, 251}
+\definecolor{y}{RGB}{144, 202, 249}
+\definecolor{g}{RGB}{66, 165, 245}
+\definecolor{b}{RGB}{30, 136, 229}
+
+%%% Color  %%%---------------------------------------------------------
+\usepackage{color}
+\newcommand{\blue}[1]{{\color{blue}#1}}
+\newcommand{\NOTE}[1]{{\color{blue}#1}}
+\newcommand{\MOVED}[1]{{\color{gray}#1}}
+
+
+%%% Alphabets %%%---------------------------------------------------------
+%%% Some shortcuts for my commonly used special alphabets and characters.
+\def\cA{\mathcal{A}}\def\cB{\mathcal{B}}\def\cC{\mathcal{C}}\def\cD{\mathcal{D}}\def\cE{\mathcal{E}}\def\cF{\mathcal{F}}\def\cG{\mathcal{G}}\def\cH{\mathcal{H}}\def\cI{\mathcal{I}}\def\cJ{\mathcal{J}}\def\cK{\mathcal{K}}\def\cL{\mathcal{L}}\def\cM{\mathcal{M}}\def\cN{\mathcal{N}}\def\cO{\mathcal{O}}\def\cP{\mathcal{P}}\def\cQ{\mathcal{Q}}\def\cR{\mathcal{R}}\def\cS{\mathcal{S}}\def\cT{\mathcal{T}}\def\cU{\mathcal{U}}\def\cV{\mathcal{V}}\def\cW{\mathcal{W}}\def\cX{\mathcal{X}}\def\cY{\mathcal{Y}}\def\cZ{\mathcal{Z}}
+
+\def\AA{\mathbb{A}} \def\BB{\mathbb{B}} \def\CC{\mathbb{C}} \def\DD{\mathbb{D}} \def\EE{\mathbb{E}} \def\FF{\mathbb{F}} \def\GG{\mathbb{G}} \def\HH{\mathbb{H}} \def\II{\mathbb{I}} \def\JJ{\mathbb{J}} \def\KK{\mathbb{K}} \def\LL{\mathbb{L}} \def\MM{\mathbb{M}} \def\NN{\mathbb{N}} \def\OO{\mathbb{O}} \def\PP{\mathbb{P}} \def\QQ{\mathbb{Q}} \def\RR{\mathbb{R}} \def\SS{\mathbb{S}} \def\TT{\mathbb{T}} \def\UU{\mathbb{U}} \def\VV{\mathbb{V}} \def\WW{\mathbb{W}} \def\XX{\mathbb{X}} \def\YY{\mathbb{Y}} \def\ZZ{\mathbb{Z}}  
+
+\def\fa{\mathfrak{a}} \def\fb{\mathfrak{b}} \def\fc{\mathfrak{c}} \def\fd{\mathfrak{d}} \def\fe{\mathfrak{e}} \def\ff{\mathfrak{f}} \def\fg{\mathfrak{g}} \def\fh{\mathfrak{h}} \def\fj{\mathfrak{j}} \def\fk{\mathfrak{k}} \def\fl{\mathfrak{l}} \def\fm{\mathfrak{m}} \def\fn{\mathfrak{n}} \def\fo{\mathfrak{o}} \def\fp{\mathfrak{p}} \def\fq{\mathfrak{q}} \def\fr{\mathfrak{r}} \def\fs{\mathfrak{s}} \def\ft{\mathfrak{t}} \def\fu{\mathfrak{u}} \def\fv{\mathfrak{v}} \def\fw{\mathfrak{w}} \def\fx{\mathfrak{x}} \def\fy{\mathfrak{y}} \def\fz{\mathfrak{z}}
+\def\fgl{\mathfrak{gl}}  \def\fsl{\mathfrak{sl}}  \def\fso{\mathfrak{so}}  \def\fsp{\mathfrak{sp}}  
+\def\GL{\mathrm{GL}} \def\SL{\mathrm{SL}}  \def\SP{\mathrm{SP}} \def\O{\mathrm{O}}
+
+\def\<{\langle} \def\>{\rangle}
+\usepackage{mathabx}
+\def\acts{\lefttorightarrow}
+\def\ad{\mathrm{ad}} 
+\def\Aut{\mathrm{Aut}}
+\def\Ann{\mathrm{Ann}}
+\def\dim{\mathrm{dim}} 
+\def\End{\mathrm{End}} 
+\def\ev{\mathrm{ev}} 
+\def\Fr{\mathcal{F}\mathrm{r}}
+\def\half{\hbox{$\frac12$}}
+\def\Hom{\mathrm{Hom}} 
+\def\id{\mathrm{id}} 
+\def\sgn{\mathrm{sgn}}  
+\def\supp{\mathrm{supp}}  
+\def\Tor{\mathrm{Tor}}
+\def\tr{\mathrm{tr}} 
+\def\vep{\varepsilon}
+\def\f{\varphi}
+
+
+\def\Obj{\mathrm{Obj}}
+\def\normeq{\unlhd}
+\def\Set{{\cS\mathrm{et}}}
+\def\Fin{{\cF\mathrm{inSet}}}
+\def\Set{{\cS\mathrm{et}}}
+\def\Grp{{\cG\mathrm{rp}}}
+\def\Ab{{\cA\mathrm{b}}}
+\def\Mod{{\cM\mathrm{od}}}
+\def\ab{\mathrm{ab}}
+\def\lcm{\mathrm{lcm}}
+\def\ZZn{\ZZ/n\ZZ}
+\def\ses{0\rightarrow X \xrightarrow{f} Y \xrightarrow{g} Z \rightarrow 0}
+\def\tsfs{\Sigma^{\pm}_d}
+
+
+\newcommand{\Hint}[1]{\hfill{\small [\emph{Hint:} {#1}]}}
+\newcommand\Cmd[1]{$\backslash$\texttt{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+TODO: finish proof of completeness
+Add proof that all computable functions continuous and related notes
+Answer some questions
+Add context on understanding turing machines and oracles
+
+To talk about computability in shift spaces, we need to first set up the space of all shift spaces and verify that it has some reasonable properties that will make our lives easier in the longrun. We want to show that the set of all shift spaces $\Sigma_{inf}$ is a metric space that is complete and compact. Once we have established these properties we will introduce the notion of computability in generally, and then computability in metric spaces to show that there is a notion of $\Sigma_{inf}$ being computable. Later we will be able to then discuss the computability of certain properties of shift spaces, like entropy. This question is deeply important to our use of computers in understanding processes in the physical world.
+
+\section{Shift Spaces as a Metric Space}
+\begin{lemma}
+    Let $X, Y \in \Sigma_{inf}$ be shift spaces. The following is a metric, 
+    $$d_S(X,Y) = \begin{cases}
+        0 & X = Y \\ 
+        \frac{1}{2}^l & l = \inf \{w_l \in \cL(X) \cup \cL(Y) \setminus \cL(X) \cap \cL(Y)\}
+    \end{cases}$$
+    That is, $l$ is smallest word length that causes $\cL_l(X) \neq \cL_l(Y)$, and the smaller this number the further apart the spaces are.
+\end{lemma}
+
+\begin{proof}
+    To show something is a metric we must show for all $X,Y,Z$ that
+    \begin{enumerate}
+        \item $d_S(X,X) = 0$,
+        \item $d_S(X,Y) = d_S(Y,X)$, and
+        \item $d_S(X,Y) \leq d_S(X,Z) + d_S(Z,Y)$, the triangle inequality.
+    \end{enumerate}
+
+    The first two are required by the definition of $d_S$. The triangle inequality is shown by computation.  Let $X, Y \in \Sigma_{inf}$. If $X = Y$ the proof is trivial, so suppose $X \neq Y$. Then we have $d_S(X,Y) = 2^{-l}$ for some $l$ and minimal word $w_l$ that the languages of $X$ and $Y$ disagree on. Suppose $w_l \in \cL(X)$ and not in $\cL(Y)$, the proof of the other direction is the same. Since $l$ is minimal, $w_i \in \cL(X) \cap \cL(Y)$ for all $i < l$.
+
+    Now let $Z$ be some other shift space. Either $d_S(X, Z) \geq d_S(X,Y)$, in which case the triangle inequality is proven, or $d_S(X, Z) < d_S(X,Y)$, in which case $d_S(X, Z) = 2^{-i} < 2^{-l}$ with $i > l$. So all smaller words $w_j$ for $j < i$ are in $\cL(X) \cap \cL(Z)$. That means the original word the languages of $X$ and $Y$ disagreed on $w_l$ is in $\cL(Z)$. So $d_S(Y,Z)$ is at least $2^{-l}$, which is good enough to show the triangle inequality.
+\end{proof}
+
+\begin{prop}
+    The metric space $(\Sigma_{inf}, d_S)$ is complete.
+\end{prop}
+
+\begin{proof}
+    We can show a metric space is complete by showing that all Cauchy sequences converge. Recall a sequence $(X_j) \in \Sigma_{inf}$ is Cauchy if given an $\epsilon > 0$ there exists an $N$ such that for all $m, n \geq N$, $d_S(X_m, X_n) < \epsilon$. We would like to be able to think about this in terms of languages though, so we present an equivalent statement for a sequence of shift spaces to be Cauchy.
+    
+    Let $(X_i)$ be a Cauchy sequence in $\Sigma_{inf}$. Given any $\epsilon > 0$ we can find an $l$ such that $2^{-l} \leq \epsilon$. If $d_S(X_n, X_m) \leq 2^{-l}$, that means the smallest word for which their languages disagree has length $k \geq l$. Now consider the index $N$ required to exist by the Cauchy property, and note that this means $d_S(X_N, X_m) \leq 2^{-l}$ so $\cL_l(X_N) = \cL_l(X_m)$ for all $m \geq N$.  
+
+    // TODO
+
+    For all $n \in \NN$ there exists an index $J_n \in \NN$ such that for all $j \geq N_n$ $\cL_n(X_j) = \cL_n(X_J)$. That is, for every word length there is an index into the sequence after which the set of allowable words of that length stabilizes and remains the same for the rest of the sequence. 
+
+    We will use these stabilized allowable word sets to build a language, and then show that the shift space generated by that language is the limit of the sequence. Let $L_n = \cL_n(X^J)$ and $L = \cup_n L_n$. To show $L$ is a language we first need that any word $w$ can be extended.   
+
+    // TODO 
+
+    Next we need to show that $L$ is closed under subwords.   
+
+    // TODO  
+
+    Conclusion: since $L$ is a language, $X_L$ is a shift space. And $\lim_{n \rightarrow \infty} (X_n) = X_L$. And since we have shown that an arbitrary Cauchy sequence $(X_n)$ converges, we have shown that $(\Sigma_{inf}, d_S)$ is a complete metric space. 
+\end{proof}
+
+\begin{prop}
+    The metric space $(\Sigma_{inf}, d_S)$ is compact.
+\end{prop}
+
+\begin{proof}
+    The following proof relies on the fact that in a metric space compactness is equivalent to sequential compactness. We will take an arbitrary sequence and produce a convergent subsequence, from which compactness follows. 
+
+    Let $(X_j)$ be a sequence in $\Sigma_{inf}$. We will construct a convergent subsequence by induction. 
+
+    (n=1) Pick $j_1 \in \NN$ such that $\cL_1(X_{j_1}) = \cL_1(X_j)$ in infinitely many $j \geq j_1$.
+    
+    (n+1) Suppose we have $j_1 \dots j_n$ as above, and also with $\cL_i(X_{j_i}) = \cL_i(X_{j_k})$ for all $j_i < j_k \leq j_n$. (That is, after $j_i$ the $\cL_i$ agree for all following indices up to $j_n$, and then there are infinitely many indices after that whose language at that length also agree.)
+
+    Then there exists some index $j_{n+1} > j_n$ such that $\cL_1(X_{j_1}) = \cL_1(X_{j_{n+1}}), \dots \cL_n(X_{j_n}) = \cL(X_{j_{n+1}})$ (at the new index the language agrees with the language of words of length $i$ at $X_{j_i}$) and $\cL_{n+1}(X_{n+1}) = \cL_{n+1}(X_j)$ for infinitely many $j \geq j_{n+1}$.
+    QUESTION: how do we know we can find such an index?
+
+    By a similar argument as the last proof, this subsequence is Cauchy, and so it converges by the last theorem. 
+\end{proof}
+
+
+\section{Computability}
+For now we will consider computability within $\RR$ with the usual metric $||$. In the next section we will generalize all of these definitions. 
+
+\begin{defn}
+    Let $x \in \RR$. An \textit{oracle} of $x$ is a function $\varphi: \NN \rightarrow \QQ$ such that $|\varphi(n) - x|< 2^{-n}$. 
+\end{defn}
+
+The input in $\NN$ should be thought of as the desired degree of precision, and the fact that the output value is in $\QQ$ is significant because ... QUESTION: why?
+
+\begin{defn}
+    We say $x \in \RR$ is computable if there exists a turing machine $\chi$ which is an oracle of $x$. 
+\end{defn}
+
+Turing machines will not be formally defined here. The vibes definition is that a turing machine is a computer program. // QUESTION: more about how to think about turing machines and oracles and how they relate to these $< 2^{-n}$ bounds?
+
+\begin{defn}
+    We say $x \in \RR$ is \textit{upper semi-computable} if there exists a turing machine $\chi: \NN \rightarrow \QQ$ such that $(\chi(n))$ is a nonincreasing sequence with $\lim_{n \rightarrow \infty} \chi(n) = x$.
+    Similarly $\chi$ is \textit{lower semi-computable} if $-x$ is upper semi-computable.
+\end{defn}
+
+We state as a fact that a real number is computable if and only if it is upper and lower semi-computable. The proof idea is to let the upper and lower turing machines run until they are within $2^{-n}$ of each other. 
+
+Examples of familiar computable numbers are rational, algebraic and some transcendental numbers. Both $\pi$ and $e$ are computable. But most numbers are not computable! It is hard to produce an example of one because if we could write it down then we would have an algorithm for computing it. To produce an example, we make use of the halting problem, which states that there is no universal turing machine that decides if any given Turing machine halts. There are a countable number of turing machines, so let $T_i$ be an ordering of all turing machines. Then define $t_n = \begin{cases}
+    0 & T_n \text{ halts} \\
+    1 & T_n \text{ doesn't halt}
+\end{cases}$. Let $\alpha = 0.t_1t_2t_3\dots$. This number $\alpha$ must be uncomputable otherwise it would be a universal turing machine that solves the halting problem. 
+
+Now we consider the definition of a computable function.
+\begin{defn}
+    Let $S \subseteq \RR^n$. We say $g: S \rightarrow \RR$ is \textit{computable} if there exists a turing machine $\chi$ such that for all $x \in S$, oracles $\varphi$ of $x$, and $n \in \NN$ that $\chi(\varphi, n) \in \QQ$ and $\chi(\varphi, n) - g(x)| < 2^{-n}$.
+\end{defn}
+
+We will now outline the reason why this definition means that all computable functions are continuous. // TODO
+
+\section{Computable Metric Spaces}
+QUESTION: what is the role of $\QQ$?
+We have given notions of oracles and computability in our favorite example $(\RR, ||, \QQ)$. Here we generalize the notion of a computable metric space to allow us to use these definitions with other spaces. There is another generalization due to Bloom, Shub, and Smale that is more algebraic and not commonly used by computer scientists.
+
+\begin{defn}   
+    Let $(X, d_X)$ be a complete, separable metric space with $S = \{s_i\}$ a dense, countable subset. We say $(X, d_X, S)$ is a \textit{computable metric space} if there exists a turing machine $\chi: \NN^2 \times \ZZ \rightarrow \QQ$ such that $|\chi(i,j,n) - d_X(s_i, s_j)| < 2^{-n}$. In other words, the function $(i,j) \rightarrow d_X(s_i, s_j)$ is computable.
+\end{defn}
+
+\begin{defn}  
+    Let $(X, d_X, S)$ be a computable metric space, and let $x \in X$. We say $\varphi: \NN \rightarrow \NN$ is an \textit{oracle of $x$} if $d_X(\varphi(s_n), x) < 2^{-n}$.  
+\end{defn}
+
+\begin{defn}
+    Let $(X, d_X, S)$ be a computable metric space. We say $x \in X$ is \textit{computable} if there exists a turing machine $\chi: \NN \rightarrow \NN$ such that $\chi$ is an oracle of $x$.
+\end{defn}
+
+
+\begin{defn}
+    Let $(X, d_X, S)$ be a computable metric space and $Y \subseteq X$. We say  $g: Y \rightarrow \RR$ is a \textit{computable function} if there exists a turing machine $\chi$ such that for all $x \in Y$, all oracles $\varphi$ of $x$ that $\chi(\varphi, n) \in \QQ$ and $\chi(\varphi,n) - g(x)| < 2^{-n}$.
+\end{defn}
+
+QUESTION: why are we using $\RR$ and $\QQ$ here? should they be $X$ and $S$ ?
+
+For a long time there wasn't a general notion of computability at a point. Prof. Wolf introduced this notion in a paper recently, which recalls the definition of continuity at a point. 
+
+\begin{defn}
+    Let  $(X, d_X, S)$ be a computable metric space, $Y \subseteq X$ and $x_0 \in Y$. We say a function $g: Y \rightarrow \RR$ is \textit{computable at $x_0$} if there exists a turing machine $\chi$ such that for any oracle $\varphi$ of $x_0$ in $X$, $\chi(\varphi, n) \in \QQ$ and has the following property. 
+    
+    Let $l_{\varphi,n}$ be the maximal precision that $\chi$ queries in the calculation of $\chi(\varphi, n)$. Then for all $y \in S$ such that there exists an oracle $\varphi'$ for $y$ which coincides with $\varphi$ up to the precision $l_{\varphi, n}$ we have that $\chi(\varphi, n) = \chi(\varphi', n)$ and $|\chi(\varphi, n) - g(y)| < 2^-n$.
+
+    // QUESTION: should this be $d_S$ not $||$?
+\end{defn}
+
+
+
+
+
+
+\printbibliography
+
+\end{document}
