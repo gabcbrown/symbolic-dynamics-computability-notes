@@ -1,0 +1,25 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\tocsection {}{1}{Introduction}}{1}{section.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\tocsection {}{2}{Fundamentals of Shift Spaces}}{1}{section.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\tocsubsection {}{2.1}{Coded Shifts}}{1}{subsection.2.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\tocsubsection {}{2.2}{Topological Entropy in Shift Spaces}}{1}{subsection.2.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\tocsection {}{3}{Computability of shift spaces}}{1}{section.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\tocsubsection {}{3.1}{Introduction to Computability}}{1}{subsection.3.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\tocsubsection {}{3.2}{Computability of Sofic Shifts and SFTs}}{1}{subsection.3.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\tocsubsection {}{3.3}{Crash course in Measure Theory}}{1}{subsection.3.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\tocsubsection {}{3.4}{Crash Course in Ergodic Theory}}{1}{subsection.3.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\tocsubsection {}{3.5}{Connecting Topological and Measure Theoretic Entropy}}{2}{subsection.3.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\tocsubsection {}{3.6}{Entropy of Coded Shifts}}{2}{subsection.3.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\tocsection {}{}{References}}{2}{section*.2}%
