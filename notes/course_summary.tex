@@ -41,7 +41,7 @@
 %%% Theorems %%%--------------------------------------------------------- 
 \theoremstyle{plain}
     \newtheorem{thm}{Theorem}[section]
-    % \numberwithin{thm}{subsection}
+    \numberwithin{thm}{subsection}
     \newtheorem{lemma}[thm]{Lemma}
     \newtheorem{prop}[thm]{Proposition}
     \newtheorem{cor}[thm]{Corollary}
@@ -135,7 +135,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \title{Course Summary}
-\author{Gabriela Brown\\ Math B49 \\ 05/23/2022}
+\author{Gabriela Brown\\ Symbolic Dynamics - Wolf \\ Spring 2023}
 
 \begin{document}
 \maketitle
@@ -147,7 +147,7 @@
 
 
 \section{Introduction}
-TODO
+% TODO
 
 \section{Fundamentals of Shift Spaces}
 % \cite{lind-marc}[Ch. 1, Ch. 2]
@@ -255,7 +255,8 @@ TODO
 % co-finite case of 1.2.6 is an sft 
 
 % - if you have a lift of a blockmap through a higher alphabet that gives you a 1-block code, why doesn't this recoding not in general give you a 1-block coding for the inverse? Also, what does it mean for the inverse?
-
+\subsection{SFTs}
+\subsection{Sofic Shifts}
 \subsection{Coded Shifts}\cite[L8]{wolf}
 
 \subsection{Topological Entropy in Shift Spaces}\cite[L5]{wolf}
@@ -266,22 +267,22 @@ Our goal in this section is to define the notion of computability at a point, an
 
 \subsection{Introduction to Computability}\cite[L6, L7]{wolf}   
 
-check notes on computability
+% check notes on computability
 
 \subsection{Computability of Sofic Shifts and SFTs}\cite[L7]{wolf}  
 
-check notes on computability
+% check notes on computability
 
 \subsection{Crash course in Measure Theory}\cite[L6]{wolf}  
-If you're like me and have never taken an analysis course, you may have also confused metrics and measures. For clarity's sake, a metric is a function $d: X \times X \rightarrow \RR$ that tells us the distance between two points in a space, and satisfies certain properties like the triangle inequality. A measure is a function that tells us the size of a set in the right context. We now establish that context.
+% If you're like me and have never taken an analysis course, you may have also confused metrics and measures. For clarity's sake, a metric is a function $d: X \times X \rightarrow \RR$ that tells us the distance between two points in a space, and satisfies certain properties like the triangle inequality. A measure is a function that tells us the size of a set in the right context. We now establish that context.
 
-// TODO: sigma algebras and such
+% // TODO: sigma algebras and such
 
-\begin{defn}[Measure]
-  // TODO
-\end{defn}
+% \begin{defn}[Measure]
+%   // TODO
+% \end{defn}
 
-// TODO: check notes on computability
+% // TODO: check notes on computability
 
 \subsection{Crash Course in Ergodic Theory}\cite[L10]{wolf} \\
 Let $f$ be a generic dynamical system. Ergodic theory is the study of $f$-invariant measures. We say a measure is an \textbf{ergodic measure} if for all $f$-invariant subsets $A$, either $\mu(A) = 0$ or $\mu(A) = 1$. These ergodic measures pick out a particular invariant subset to give full measure, which creates a notion of decomposition into smaller dynamical systems. Any measure is a convex sum of ergodic measures, so it also gives us a way to study measures by their more neatly behaved components. We will go about identifying ergodic measures by the fact that they are the extreme points in the space of measures. 
@@ -345,26 +346,39 @@ We've already described the computability of $h_{top}$ for SFTs and sofic shifts
 
 First we need to set up the dynamical inverse problem, which is interested in when we can reconstruct a dynamical system just from observations we make in the world. For example a scientist might measure the temperature every day at the same time, and we would like to know if it is possible to accurately reconstruct the underlying dynamical system of weather just from those observations. If $f: X \rightarrow X$ is the underlying dynamical system, the \textbf{observables} are functions $\phi \in C(X,\RR)$. The following notion of topological pressure formalizes certain circumstances where it is possible to reconstruct from observables. It works for dynamical systems in general, but we will write it in terms of shift spaces so we can more readily apply it to the situation at hand.
 \begin{defn}[Topological Pressure]
-  Let $X$ be a shift space, with shift map $\sigma: X \rightarrow X$. First we give the weighted orbit of $x$ along $n$,
-  $$S_n\phi(x) = \sum_{k=0}^{n-1}\phi(\sigma^k(x)).$$
-  Then we define the $n^{th}$ partition function
-  $$Z_n(\phi) = \sum_{w \in \cL_n(X)}\exp(\sup_{x \in [w]_0^{n-1}} S_n\phi(x)).$$ 
-  We can show that $\log Z_n(\phi)$ is subadditive, so the following limit exists 
-  $$P_{top}(\phi) = \lim_{n\rightarrow \infty}\frac{1}{n}\log Z_n(\phi).$$
-  Or if the alphabet is countable we define 
-  $$P_{top}(\phi) = \inf_n \{\log \frac{1}{n}Z_n(\phi)\}.$$
+  Let $X \in \Sigma_inv$, with shift map $\sigma: X \rightarrow X$. The topological pressure $P_{top}: C(X,\RR) \rightarrow \RR$ is defined 
+  $$P_{top}(\phi) = \begin{cases}
+    \lim_{n\rightarrow \infty}\frac{1}{n}\log Z_n(\phi) & \text{finite alphabet,} \\ 
+    \inf_n \{\frac{1}{n}\log Z_n(\phi)\}
+    & \text{countable alphabet,}
+  \end{cases}$$
+  where $Z_n(\phi) = \sum_{w \in \cL_n(X)}\exp(\sup_{x \in [w]_0^{n-1}} S_n\phi(x))$ is the $n^{th}$ partition function, and 
+  $S_n\phi(x) = \sum_{k=0}^{n-1}\phi(\sigma^k(x))$ is the weighted orbit of $x$ along $n$. This limit exists because  $\log Z_n(\phi)$ is subadditive.
 \end{defn}
 
-// TODO: add end of 04/19, all of 04/26
+Note that this is a purely topological construction, but we can tie it into measure theoretic ideas. We say that a measure $\mu$ is an \textbf{equillibrium state} of the observable $\phi \in C(X, \RR)$ if $P_{top}(\phi) = F_\mu(\phi)$, where $F_\mu(\phi) = h_\mu(\sigma) + \int\phi d\mu$ is the \textbf{free energy} of $\phi$ with respect to $\mu$. This leads us to our second statement of the variational principle, 
+
+\begin{thm}[Variational principle]
+  $$P_{top}(\phi) = \sup_{\mu \in \cM_{X,\sigma}}\left(h_\mu(\sigma)+\int \phi d\mu\right).$$
+\end{thm}
+In this version we have phrased the connection between measure theoretic and topological entropy in terms of these observable functions $\phi$. Note that if $\phi = 0$, this statement becomes the first version of the variational principle, and $\mu$ is an mme. 
+
+// TODO: thm about shift spaces having unique equilibrium state?
+
+// TODO: inducing
 
 \subsection{Entropy of Coded Shifts}\cite[L12]{wolf}
-(this only makes sense for measure theoretic entropy so we need to venture through it to understand top entrop for coded shifts)
+// TODO: wait for 05/03 lecture
+
+\subsection{Examples of Computing Entropy of Shift Spaces}
+// TODO: add examples from 04/26
 
 \subsection{Questions}
 \begin{enumerate}
   \item Is every shift a coded shift?
   \item I don't understand the paragraph about how to decompose a general measure into ergodic measures.
   \item definition of basin seems wrong.
+  \item what's that about shift spaces having unique equilibrium state?
 \end{enumerate}
 
 \appendix
@@ -387,7 +401,7 @@ First we need to set up the dynamical inverse problem, which is interested in wh
   L9 & 04/05 \\ \hline
   L10 & 04/19 \\ \hline
   L11 & 04/26 \\ \hline
-  L12 & 05/01 \\ \hline
+  L12 & 05/03 \\ \hline
 \end{tabular}
 
 \printbibliography
