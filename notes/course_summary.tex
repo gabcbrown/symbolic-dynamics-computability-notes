@@ -320,7 +320,7 @@ The next theorem gives us a key connection between the so called time average an
   $$\phi_f(x) = \int \phi d\mu \quad \text{for a.e. }x \in X.$$
 \end{thm}
 
-This theorem gives us a natural definition of the \textbf{basin of $\mu$}, $B(\mu)$ the points $x \in X$ where the time average is equal to the space average. 
+TODO: not sure about this definition of the basin. This theorem gives us a natural definition of the \textbf{basin of $\mu$} $B(\mu)$ which is the set of points in $X$ where the time average is equal to the space average for $\phi = 1$, $\{x \in X : \lim_{n\rightarrow \infty} \sum_{k=0}^{n-1}\delta_{f^k(x)} = \mu\}$
 \begin{cor}
   If $\mu$ is ergodic, then $\mu(B(\mu)) = 1$.
 \end{cor}
@@ -339,7 +339,21 @@ This definition requires that for measure theoretic entropy to be positive, the 
   $$h_{top}(f)= \sup_{\mu \in \cM_{X,f}}h_\mu(f)$$
 \end{thm}
 
-If there is a measure $\mu$ such that $h_\mu(f) = h_{top}(f)$ then we call $\mu$ a \textbf{measure of maximal entropy (mme)}. The supremum means that for some dynamical systems there is no mme. We've already described the computability of $h_{top}$ for SFTs and sofic shifts, and in order to understand it for coded shifts we're going to need to use the variational principle to study the problem using measure-theoretic entropy. It turns out that topological entropy for a coded shift is computable if it lives on the concatenations of generators, and not computable if it lives in the limit. To show this though we need to understand the dynamical inverse problem and the technique of inducing.
+If there is a measure $\mu$ such that $h_\mu(f) = h_{top}(f)$ then we call $\mu$ a \textbf{measure of maximal entropy (mme)}. The supremum in this equation means that for some dynamical systems there is no mme. 
+
+We've already described the computability of $h_{top}$ for SFTs and sofic shifts, and in order to understand it for coded shifts we're going to need to use the variational principle to study the problem from the perspective of measure-theoretic entropy. But even then if we can find ergodic measures, it can still be tricky to study, so we're going to use ideas from the dynamical inverse problem and the technique of inducing to set up a space of potentials with equillibrium states that lets us study observables instead, which we really can get our hands on. After all this work we'll see that topological entropy for a coded shift is computable if it lives on the concatenations of generators, and not computable if it lives in the limit.
+
+First we need to set up the dynamical inverse problem, which is interested in when we can reconstruct a dynamical system just from observations we make in the world. For example a scientist might measure the temperature every day at the same time, and we would like to know if it is possible to accurately reconstruct the underlying dynamical system of weather just from those observations. If $f: X \rightarrow X$ is the underlying dynamical system, the \textbf{observables} are functions $\phi \in C(X,\RR)$. The following notion of topological pressure formalizes certain circumstances where it is possible to reconstruct from observables. It works for dynamical systems in general, but we will write it in terms of shift spaces so we can more readily apply it to the situation at hand.
+\begin{defn}[Topological Pressure]
+  Let $X$ be a shift space, with shift map $\sigma: X \rightarrow X$. First we give the weighted orbit of $x$ along $n$,
+  $$S_n\phi(x) = \sum_{k=0}^{n-1}\phi(\sigma^k(x)).$$
+  Then we define the $n^{th}$ partition function
+  $$Z_n(\phi) = \sum_{w \in \cL_n(X)}\exp(\sup_{x \in [w]_0^{n-1}} S_n\phi(x)).$$ 
+  We can show that $\log Z_n(\phi)$ is subadditive, so the following limit exists 
+  $$P_{top}(\phi) = \lim_{n\rightarrow \infty}\frac{1}{n}\log Z_n(\phi).$$
+  Or if the alphabet is countable we define 
+  $$P_{top}(\phi) = \inf_n \{\log \frac{1}{n}Z_n(\phi)\}.$$
+\end{defn}
 
 // TODO: add end of 04/19, all of 04/26
 
@@ -350,6 +364,7 @@ If there is a measure $\mu$ such that $h_\mu(f) = h_{top}(f)$ then we call $\mu$
 \begin{enumerate}
   \item Is every shift a coded shift?
   \item I don't understand the paragraph about how to decompose a general measure into ergodic measures.
+  \item definition of basin seems wrong.
 \end{enumerate}
 
 \appendix
