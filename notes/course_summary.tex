@@ -45,6 +45,7 @@
     \newtheorem{lemma}[thm]{Lemma}
     \newtheorem{prop}[thm]{Proposition}
     \newtheorem{cor}[thm]{Corollary}
+    \newtheorem{fact}[thm]{Fact}
 \theoremstyle{definition}
     \newtheorem{defn}[thm]{Definition}
     \newtheorem{remark}{Remark}
@@ -255,33 +256,125 @@ TODO
 
 % - if you have a lift of a blockmap through a higher alphabet that gives you a 1-block code, why doesn't this recoding not in general give you a 1-block coding for the inverse? Also, what does it mean for the inverse?
 
-\subsection{Coded Shifts}\cite[03/22]{wolf}
+\subsection{Coded Shifts}\cite[L8]{wolf}
 
-\subsection{Topological Entropy in Shift Spaces}\cite[03/02]{wolf}
+\subsection{Topological Entropy in Shift Spaces}\cite[L5]{wolf}
 
 \section{Computability of shift spaces}
 
-\subsection{Introduction to Computability}\cite[03/08, 03/15]{wolf}   
+Our goal in this section is to define the notion of computability at a point, and then use that notion to understand the computability of entropy of shift spaces. For SFTs and sofic shifts it is sufficient to work with topological entropy as we defined in the last section. However to understand coded shifts we will need to enter the world of measure-theoretic entropy, and we'll also need a few important results of ergodic theory in order to be able to move between these two version of entropy.
+
+\subsection{Introduction to Computability}\cite[L6, L7]{wolf}   
 
 check notes on computability
 
-\subsection{Computability of Sofic Shifts and SFTs}\cite[03/15]{wolf}  
+\subsection{Computability of Sofic Shifts and SFTs}\cite[L7]{wolf}  
 
 check notes on computability
 
-\subsection{Crash course in Measure Theory}\cite[03/08]{wolf}  
+\subsection{Crash course in Measure Theory}\cite[L6]{wolf}  
+If you're like me and have never taken an analysis course, you may have also confused metrics and measures. For clarity's sake, a metric is a function $d: X \times X \rightarrow \RR$ that tells us the distance between two points in a space, and satisfies certain properties like the triangle inequality. A measure is a function that tells us the size of a set in the right context. We now establish that context.
 
-check notes on computability
+// TODO: sigma algebras and such
 
-\subsection{Crash Course in Ergodic Theory}\cite[04/19]{wolf}
+\begin{defn}[Measure]
+  // TODO
+\end{defn}
 
-\subsection{Connecting Topological and Measure Theoretic Entropy}\cite[04/26, 04/19]{wolf}
+// TODO: check notes on computability
 
-\subsection{Entropy of Coded Shifts}\cite[05/01]{wolf}
+\subsection{Crash Course in Ergodic Theory}\cite[L10]{wolf} \\
+Let $f$ be a generic dynamical system. Ergodic theory is the study of $f$-invariant measures. We say a measure is an \textbf{ergodic measure} if for all $f$-invariant subsets $A$, either $\mu(A) = 0$ or $\mu(A) = 1$. These ergodic measures pick out a particular invariant subset to give full measure, which creates a notion of decomposition into smaller dynamical systems. Any measure is a convex sum of ergodic measures, so it also gives us a way to study measures by their more neatly behaved components. We will go about identifying ergodic measures by the fact that they are the extreme points in the space of measures. 
+
+Let $(X, d)$ be a compact metric space with continuous dynamical system $f: X \rightarrow X$. We use $\boldsymbol{\cM_{X,f}}$ to mean the set of $f$-invariant Borel probability measures on $X$. ($f$-invariant means $\mu(f^{-1}(A)) = \mu(A) \;\forall\; A \in \cB(X)$ and probability measure means $\mu(X) = 1$.) The set $\cM_{X,f}$ is metrizable by the \textbf{Wasserstein-Kantorovitch distance}, $w_1(\mu, \nu) = \text{sup}|\int \phi d\mu - \int \phi d\nu|$ for any $\phi \in 1\text{-Lip}(X,\RR)$. This metric induces the weak* topology (definition omitted). We will now give several statements that let us find the ergodic measures in $\cM_{X,f}$.
+
+\begin{fact}
+  $\cM_{X,f}$ is compact under the weak* topology.
+\end{fact}
+
+\begin{thm}
+  $\cM_{X,f} \neq \emptyset$. 
+\end{thm}
+
+\begin{proof}
+  // TODO: in notes
+\end{proof}
+
+\begin{fact}
+  $\cM_{X,f}$ is convex. (Between any two points you can draw a straight line that stays in the set).
+\end{fact}
+
+In a compact, convex topological space you can define extreme points. In fact, the set of ergodic measures of $\cM_{X,f}$ is exactly the extreme points of the set, which we denote $M_E \subseteq \cM_{X,f}$. We write the decomposition of a general measure into ergodic measures in the following way. Let $\mu \in \cM_{X,f}$. Then there exists another $\lambda \in \cM_{X,f}$ such that $\lambda(\cM_E) = 1$ and $\int \phi d\mu = \int \int \phi d\nu d\lambda$ for all $\phi \in C(X, \RR)$ and arbitrary measure $\nu$. In other words, the non-ergodic measures form a set of measure 0 for $\lambda$ and do not contribute to the integral.
+
+We will need the following theorem in the next section to understand the technique of inducing a dynamical system onto a preferred subset.
+\begin{thm}[Poincare Recurrence Theorem]
+  Let $\mu \in \cM_{X,f}$, and $A \in \cB(X)$ with $\mu(A) > 0$. Then the set of points that return to $A$ a finite number of times has measure 0. Equivalently, 
+  $$\mu(\{x \in A : f^n(x) \in A \text{ infinitely many times }\}) = \mu(A).$$
+\end{thm}
+
+The next theorem gives us a key connection between the so called time average and space average of a dynamical system. This connection is important because only the space average relies on a measure, and so it allows us to bridge topological and measure theoretic notions of entropy.
+\begin{thm}[Berkhoff Ergodic Theorem]
+  Let $\mu \in \cM_{X,f}$, and $\phi \in L^1(X,\mu)$. Then the time average given by 
+  $$\phi_f(x) = \lim_{n \rightarrow \infty} \frac{1}{n}\sum_{k=0}^{n-1} \phi(f^k(x))\quad\text{ exists }\mu\;a.e.$$
+  and $\phi_f \in L^1(X,\mu)$. Furthermore if $\mu$ is ergodic then $\phi_f$ is constant almost everywhere and 
+  $$\phi_f(x) = \int \phi d\mu \quad \text{for a.e. }x \in X.$$
+\end{thm}
+
+This theorem gives us a natural definition of the \textbf{basin of $\mu$}, $B(\mu)$ the points $x \in X$ where the time average is equal to the space average. 
+\begin{cor}
+  If $\mu$ is ergodic, then $\mu(B(\mu)) = 1$.
+\end{cor}
+
+\subsection{Connecting Topological and Measure Theoretic Entropy}\cite[L10, L11]{wolf}
+The following theorem gives us a measure-theoretic definition of entropy, which is defined pointwise and then integrated. Again in this section we let $(X,d)$ be a compact metric space with $f: X \rightarrow X$ continuous and $\cM_{X,f}$ the set of $f$-invariant Borel probability measures. 
+\begin{thm}[Katok-Brin]
+  Let $\mu \in \cM_{X,f}$. Then the following limit exists 
+  $$h_\mu(x) = \lim_{r \rightarrow \infty} \lim_{n \rightarrow \infty} - \frac{1}{n} \log \mu(B_n(x, r)) \quad \mu\text{-a.e. } x.$$
+  Furthermore $x \mapsto h_\mu(x)$ is $\mu$-measurable, and if $\mu$ is ergodic then $h_\mu(x)$ is continuous and we can define 
+  $$h_\mu(f) = \int h_\mu(x)d\mu(x).$$
+\end{thm}
+This definition requires that for measure theoretic entropy to be positive, the measure must live on points that are pushed apart, that is, the Boen ball that travels with $x$ is getting smaller in the limit. We are now prepared to see the connection between topological entropy and measure theoretic entropy, commonly referred to as the Variational Principle.
+
+\begin{thm}[Variational Principle]
+  $$h_{top}(f)= \sup_{\mu \in \cM_{X,f}}h_\mu(f)$$
+\end{thm}
+
+If there is a measure $\mu$ such that $h_\mu(f) = h_{top}(f)$ then we call $\mu$ a \textbf{measure of maximal entropy (mme)}. The supremum means that for some dynamical systems there is no mme. We've already described the computability of $h_{top}$ for SFTs and sofic shifts, and in order to understand it for coded shifts we're going to need to use the variational principle to study the problem using measure-theoretic entropy. It turns out that topological entropy for a coded shift is computable if it lives on the concatenations of generators, and not computable if it lives in the limit. To show this though we need to understand the dynamical inverse problem and the technique of inducing.
+
+// TODO: add end of 04/19, all of 04/26
+
+\subsection{Entropy of Coded Shifts}\cite[L12]{wolf}
+(this only makes sense for measure theoretic entropy so we need to venture through it to understand top entrop for coded shifts)
+
+\subsection{Questions}
+\begin{enumerate}
+  \item Is every shift a coded shift?
+  \item I don't understand the paragraph about how to decompose a general measure into ergodic measures.
+\end{enumerate}
+
+\appendix
+\section{Quick Reference Sheet}
+\subsection{Shift Spaces}
+\subsection{Measure and Ergodic Theory}
+\subsection{Computability}
+
+\section{Lecture index}  
+
+\begin{tabular}{|c|c|}\hline
+  L1 & 01/25 \\ \hline
+  L2 & 02/01 \\ \hline
+  L3 & 02/15 \\ \hline
+  L4 & 02/22 \\ \hline
+  L5 & 03/02 \\ \hline
+  L6 & 03/08 \\ \hline
+  L7 & 03/15 \\ \hline
+  L8 & 03/22 \\ \hline
+  L9 & 04/05 \\ \hline
+  L10 & 04/19 \\ \hline
+  L11 & 04/26 \\ \hline
+  L12 & 05/01 \\ \hline
+\end{tabular}
 
 \printbibliography
-
-
-
 
 \end{document}

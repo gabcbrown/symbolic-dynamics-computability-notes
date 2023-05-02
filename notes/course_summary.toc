@@ -8,18 +8,30 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\tocsubsection {}{2.2}{Topological Entropy in Shift Spaces}}{1}{subsection.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\tocsection {}{3}{Computability of shift spaces}}{1}{section.3}%
+\contentsline {section}{\tocsection {}{3}{Computability of shift spaces}}{2}{section.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\tocsubsection {}{3.1}{Introduction to Computability}}{1}{subsection.3.1}%
+\contentsline {subsection}{\tocsubsection {}{3.1}{Introduction to Computability}}{2}{subsection.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\tocsubsection {}{3.2}{Computability of Sofic Shifts and SFTs}}{1}{subsection.3.2}%
+\contentsline {subsection}{\tocsubsection {}{3.2}{Computability of Sofic Shifts and SFTs}}{2}{subsection.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\tocsubsection {}{3.3}{Crash course in Measure Theory}}{1}{subsection.3.3}%
+\contentsline {subsection}{\tocsubsection {}{3.3}{Crash course in Measure Theory}}{2}{subsection.3.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\tocsubsection {}{3.4}{Crash Course in Ergodic Theory}}{1}{subsection.3.4}%
+\contentsline {subsection}{\tocsubsection {}{3.4}{Crash Course in Ergodic Theory}}{2}{subsection.3.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\tocsubsection {}{3.5}{Connecting Topological and Measure Theoretic Entropy}}{2}{subsection.3.5}%
+\contentsline {subsection}{\tocsubsection {}{3.5}{Connecting Topological and Measure Theoretic Entropy}}{3}{subsection.3.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\tocsubsection {}{3.6}{Entropy of Coded Shifts}}{2}{subsection.3.6}%
+\contentsline {subsection}{\tocsubsection {}{3.6}{Entropy of Coded Shifts}}{4}{subsection.3.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\tocsection {}{}{References}}{2}{section*.2}%
+\contentsline {subsection}{\tocsubsection {}{3.7}{Questions}}{4}{subsection.3.7}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\tocsection {Appendix}{A}{Quick Reference Sheet}}{4}{appendix.A}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\tocsubsection {}{A.1}{Shift Spaces}}{4}{subsection.A.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\tocsubsection {}{A.2}{Measure and Ergodic Theory}}{4}{subsection.A.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\tocsubsection {}{A.3}{Computability}}{4}{subsection.A.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\tocsection {Appendix}{B}{Lecture index}}{4}{appendix.B}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\tocsection {Appendix}{}{References}}{4}{section*.2}%
