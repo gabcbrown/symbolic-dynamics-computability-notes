@@ -24,9 +24,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\tocsubsection {}{3.5}{Connecting Topological and Measure Theoretic Entropy}}{3}{subsection.3.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\tocsubsection {}{3.6}{Entropy of Coded Shifts}}{4}{subsection.3.6}%
+\contentsline {subsection}{\tocsubsection {}{3.6}{Entropy of Coded Shifts}}{5}{subsection.3.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\tocsubsection {}{3.7}{Examples of Computing Entropy of Shift Spaces}}{4}{subsection.3.7}%
+\contentsline {subsection}{\tocsubsection {}{3.7}{Examples of Computing Entropy of Shift Spaces}}{5}{subsection.3.7}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\tocsubsection {}{3.8}{Questions}}{5}{subsection.3.8}%
 \defcounter {refsection}{0}\relax 
@@ -40,4 +40,4 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\tocsection {Appendix}{B}{Lecture index}}{5}{appendix.B}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\tocsection {Appendix}{}{References}}{5}{section*.2}%
+\contentsline {section}{\tocsection {Appendix}{}{References}}{6}{section*.2}%

@@ -287,7 +287,7 @@ Our goal in this section is to define the notion of computability at a point, an
 \subsection{Crash Course in Ergodic Theory}\cite[L10]{wolf} \\
 Let $f$ be a generic dynamical system. Ergodic theory is the study of $f$-invariant measures. We say a measure is an \textbf{ergodic measure} if for all $f$-invariant subsets $A$, either $\mu(A) = 0$ or $\mu(A) = 1$. These ergodic measures pick out a particular invariant subset to give full measure, which creates a notion of decomposition into smaller dynamical systems. Any measure is a convex sum of ergodic measures, so it also gives us a way to study measures by their more neatly behaved components. We will go about identifying ergodic measures by the fact that they are the extreme points in the space of measures. 
 
-Let $(X, d)$ be a compact metric space with continuous dynamical system $f: X \rightarrow X$. We use $\boldsymbol{\cM_{X,f}}$ to mean the set of $f$-invariant Borel probability measures on $X$. ($f$-invariant means $\mu(f^{-1}(A)) = \mu(A) \;\forall\; A \in \cB(X)$ and probability measure means $\mu(X) = 1$.) The set $\cM_{X,f}$ is metrizable by the \textbf{Wasserstein-Kantorovitch distance}, $w_1(\mu, \nu) = \text{sup}|\int \phi d\mu - \int \phi d\nu|$ for any $\phi \in 1\text{-Lip}(X,\RR)$. This metric induces the weak* topology (definition omitted). We will now give several statements that let us find the ergodic measures in $\cM_{X,f}$.
+Let $(X, d)$ be a compact metric space with continuous dynamical system $f: X \rightarrow X$. We use $\boldsymbol{\cM_{X,f}}$ to mean the set of $f$-invariant Borel probability measures on $X$. ($f$-invariant means $\mu(f^{-1}(A)) = \mu(A) \;\forall\; A \in \cB(X)$ and probability measure means $\mu(X) = 1$.) The set $\cM_{X,f}$ has the \textbf{Wasserstein-Kantorovitch distance}, $w_1(\mu, \nu) = \text{sup}_{\phi \in 1\text{-Lip}(X,\RR)}|\int \phi d\mu - \int \phi d\nu|$. This metric induces the weak* topology (the coursest topology such that all the integrals of any $\phi \in L^1(X, \RR)$ with respect to any measure are continuous). We will now give several statements that let us find the ergodic measures in $\cM_{X,f}$.
 
 \begin{fact}
   $\cM_{X,f}$ is compact under the weak* topology.
@@ -305,7 +305,7 @@ Let $(X, d)$ be a compact metric space with continuous dynamical system $f: X \r
   $\cM_{X,f}$ is convex. (Between any two points you can draw a straight line that stays in the set).
 \end{fact}
 
-In a compact, convex topological space you can define extreme points. In fact, the set of ergodic measures of $\cM_{X,f}$ is exactly the extreme points of the set, which we denote $M_E \subseteq \cM_{X,f}$. We write the decomposition of a general measure into ergodic measures in the following way. Let $\mu \in \cM_{X,f}$. Then there exists another $\lambda \in \cM_{X,f}$ such that $\lambda(\cM_E) = 1$ and $\int \phi d\mu = \int \int \phi d\nu d\lambda$ for all $\phi \in C(X, \RR)$ and arbitrary measure $\nu$. In other words, the non-ergodic measures form a set of measure 0 for $\lambda$ and do not contribute to the integral.
+In a compact, convex topological space you can define extreme points. In fact, the set of ergodic measures of $\cM_{X,f}$ is exactly the extreme points of the set (convex hull?), which we denote $\cM_E \subseteq \cM_{X,f}$. We write the decomposition of a general measure into ergodic measures in the following way. Let $\mu \in \cM_{X,f}$. Then there exists a $\lambda$ on $\cM_{X,f}$ such that $\lambda(\cM_E) = 1$ and $\int \phi d\mu = \int \int \phi d\nu d\lambda$ for all $\phi \in C(X, \RR)$ varying over $\nu$. In other words, the non-ergodic measures form a set of measure 0 for $\lambda$ and do not contribute to the integral.
 
 We will need the following theorem in the next section to understand the technique of inducing a dynamical system onto a preferred subset.
 \begin{thm}[Poincare Recurrence Theorem]
@@ -314,14 +314,14 @@ We will need the following theorem in the next section to understand the techniq
 \end{thm}
 
 The next theorem gives us a key connection between the so called time average and space average of a dynamical system. This connection is important because only the space average relies on a measure, and so it allows us to bridge topological and measure theoretic notions of entropy.
-\begin{thm}[Berkhoff Ergodic Theorem]
+\begin{thm}[Birkhoff Ergodic Theorem]
   Let $\mu \in \cM_{X,f}$, and $\phi \in L^1(X,\mu)$. Then the time average given by 
   $$\phi_f(x) = \lim_{n \rightarrow \infty} \frac{1}{n}\sum_{k=0}^{n-1} \phi(f^k(x))\quad\text{ exists }\mu\;a.e.$$
   and $\phi_f \in L^1(X,\mu)$. Furthermore if $\mu$ is ergodic then $\phi_f$ is constant almost everywhere and 
   $$\phi_f(x) = \int \phi d\mu \quad \text{for a.e. }x \in X.$$
 \end{thm}
 
-TODO: not sure about this definition of the basin. This theorem gives us a natural definition of the \textbf{basin of $\mu$} $B(\mu)$ which is the set of points in $X$ where the time average is equal to the space average for $\phi = 1$, $\{x \in X : \lim_{n\rightarrow \infty} \sum_{k=0}^{n-1}\delta_{f^k(x)} = \mu\}$
+TODO: not sure about this definition of the basin. This theorem gives us a natural definition of the \textbf{basin of $\mu$} $B(\mu)$ which is the set of points in $X$ where the time average is equal to the space average for $\phi = 1$, $\{x \in X : \lim_{n\rightarrow \infty} \frac{1}{n}\sum_{k=0}^{n-1}\delta_{f^k(x)} = \mu\}$. Note that the basin is $f$-invariant.
 \begin{cor}
   If $\mu$ is ergodic, then $\mu(B(\mu)) = 1$.
 \end{cor}
@@ -334,7 +334,7 @@ The following theorem gives us a measure-theoretic definition of entropy, which 
   Furthermore $x \mapsto h_\mu(x)$ is $\mu$-measurable, and if $\mu$ is ergodic then $h_\mu(x)$ is continuous and we can define 
   $$h_\mu(f) = \int h_\mu(x)d\mu(x).$$
 \end{thm}
-This definition requires that for measure theoretic entropy to be positive, the measure must live on points that are pushed apart, that is, the Boen ball that travels with $x$ is getting smaller in the limit. We are now prepared to see the connection between topological entropy and measure theoretic entropy, commonly referred to as the Variational Principle.
+This definition requires that for measure theoretic entropy to be positive, the measure must live on points that are pushed apart, that is, the Bowen ball that travels with $x$ is getting smaller in the limit. We are now prepared to see the connection between topological entropy and measure theoretic entropy, commonly referred to as the Variational Principle.
 
 \begin{thm}[Variational Principle]
   $$h_{top}(f)= \sup_{\mu \in \cM_{X,f}}h_\mu(f)$$
@@ -346,7 +346,7 @@ We've already described the computability of $h_{top}$ for SFTs and sofic shifts
 
 First we need to set up the dynamical inverse problem, which is interested in when we can reconstruct a dynamical system just from observations we make in the world. For example a scientist might measure the temperature every day at the same time, and we would like to know if it is possible to accurately reconstruct the underlying dynamical system of weather just from those observations. If $f: X \rightarrow X$ is the underlying dynamical system, the \textbf{observables} are functions $\phi \in C(X,\RR)$. The following notion of topological pressure formalizes certain circumstances where it is possible to reconstruct from observables. It works for dynamical systems in general, but we will write it in terms of shift spaces so we can more readily apply it to the situation at hand.
 \begin{defn}[Topological Pressure]
-  Let $X \in \Sigma_inv$, with shift map $\sigma: X \rightarrow X$. The topological pressure $P_{top}: C(X,\RR) \rightarrow \RR$ is defined 
+  Let $X \in \Sigma_{inv}$, with shift map $\sigma: X \rightarrow X$. The topological pressure $P_{top}: C(X,\RR) \rightarrow \RR$ is defined 
   $$P_{top}(\phi) = \begin{cases}
     \lim_{n\rightarrow \infty}\frac{1}{n}\log Z_n(\phi) & \text{finite alphabet,} \\ 
     \inf_n \{\frac{1}{n}\log Z_n(\phi)\}
@@ -356,7 +356,7 @@ First we need to set up the dynamical inverse problem, which is interested in wh
   $S_n\phi(x) = \sum_{k=0}^{n-1}\phi(\sigma^k(x))$ is the weighted orbit of $x$ along $n$. This limit exists because  $\log Z_n(\phi)$ is subadditive.
 \end{defn}
 
-Note that this is a purely topological construction, but we can tie it into measure theoretic ideas. We say that a measure $\mu$ is an \textbf{equillibrium state} of the observable $\phi \in C(X, \RR)$ if $P_{top}(\phi) = F_\mu(\phi)$, where $F_\mu(\phi) = h_\mu(\sigma) + \int\phi d\mu$ is the \textbf{free energy} of $\phi$ with respect to $\mu$. This leads us to our second statement of the variational principle, 
+Note that this is a purely topological construction, but we can tie it into measure theoretic ideas. We say that a measure $\mu$ is an \textbf{equilibrium state} of the observable $\phi \in C(X, \RR)$ if $P_{top}(\phi) = F_\mu(\phi)$, where $F_\mu(\phi) = h_\mu(\sigma) + \int\phi d\mu$ is the \textbf{free energy} of $\phi$ with respect to $\mu$. This leads us to our second statement of the variational principle, 
 
 \begin{thm}[Variational principle]
   $$P_{top}(\phi) = \sup_{\mu \in \cM_{X,\sigma}}\left(h_\mu(\sigma)+\int \phi d\mu\right).$$
@@ -365,7 +365,30 @@ In this version we have phrased the connection between measure theoretic and top
 
 // TODO: thm about shift spaces having unique equilibrium state?
 
-// TODO: inducing
+We now introduce the technique of inducing, which lets us essentially restrict a dynamical system to a preferred set in a way where we can keep track of all the important information, like the measure, entropy, and ergodicity. We will talk about this specifically in the setting of shift spaces, though the technique is broadly applicable. Let $X$ be a shift space, with shift $\sigma: X \rightarrow X$, invariant probability measure $\mu \in \cM_{X, \sigma}$, and a Borel measurable set $E \subseteq \cB(X)$. 
+
+For any $x \in X$ we define the \textbf{first return time} $\tau_E(x)$ to be the first time $n$ that $\sigma^n(x) \in E$. Now we consider the set $\boldsymbol{E^\infty}$ of points that return infinitely often to $E$. This lets us define the \textbf{first return map} $\sigma_E(x): E^\infty \rightarrow E^\infty$ by $x \mapsto \sigma^{\tau_E(x)}(x)$, which sends a point to wherever it is when it first returns to $E$. We can use the first return map to push the measure of $X$ onto $E$ in the following way. Define the \textbf{induced measure} $i(\mu) = \mu_E(F) = \frac{\mu(F \cap E)}{\mu(E)}$ which only measures sets that intersect with $E$. This way of restricting $\mu$ to $E$ is very similar to conditional probability, and the definition looks almost identical to Baye's theorem. Now we will establish some facts about the induced measure. 
+
+\begin{fact}
+  $\mu(E^\infty) = \mu(E)$ (by Poincare recurrence.)
+\end{fact}
+
+\begin{fact}
+  $\mu_F(E)$ is a probability measure on $E$.
+\end{fact}
+
+\begin{fact}
+  If $\mu$ is ergodic then $\mu_E$ is ergodic.
+\end{fact}
+
+Let $\cN_{E^\infty, \sigma_E} = \{\nu \in \cM_{E^\infty, \sigma_E} : \int \sigma_E(x) d\nu(x) < \infty \}$, that is, the measures where the integral over the first return map is finite. Then we define the \textbf{lift} $l(\nu) = \frac{\nu}{\nu(x)}$, which gives us a natural bijection,
+
+\begin{prop}
+  $i(l(\nu)) = \nu$. In other words,
+
+  
+\end{prop}
+
 
 \subsection{Entropy of Coded Shifts}\cite[L12]{wolf}
 // TODO: wait for 05/03 lecture
