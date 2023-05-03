@@ -273,17 +273,6 @@ Our goal in this section is to define the notion of computability at a point, an
 
 % check notes on computability
 
-\subsection{Crash course in Measure Theory}\cite[L6]{wolf}  
-% If you're like me and have never taken an analysis course, you may have also confused metrics and measures. For clarity's sake, a metric is a function $d: X \times X \rightarrow \RR$ that tells us the distance between two points in a space, and satisfies certain properties like the triangle inequality. A measure is a function that tells us the size of a set in the right context. We now establish that context.
-
-% // TODO: sigma algebras and such
-
-% \begin{defn}[Measure]
-%   // TODO
-% \end{defn}
-
-% // TODO: check notes on computability
-
 \subsection{Crash Course in Ergodic Theory}\cite[L10]{wolf} \\
 Let $f$ be a generic dynamical system. Ergodic theory is the study of $f$-invariant measures. We say a measure is an \textbf{ergodic measure} if for all $f$-invariant subsets $A$, either $\mu(A) = 0$ or $\mu(A) = 1$. These ergodic measures pick out a particular invariant subset to give full measure, which creates a notion of decomposition into smaller dynamical systems. Any measure is a convex sum of ergodic measures, so it also gives us a way to study measures by their more neatly behaved components. We will go about identifying ergodic measures by the fact that they are the extreme points in the space of measures. 
 
@@ -367,27 +356,58 @@ In this version we have phrased the connection between measure theoretic and top
 
 We now introduce the technique of inducing, which lets us essentially restrict a dynamical system to a preferred set in a way where we can keep track of all the important information, like the measure, entropy, and ergodicity. We will talk about this specifically in the setting of shift spaces, though the technique is broadly applicable. Let $X$ be a shift space, with shift $\sigma: X \rightarrow X$, invariant probability measure $\mu \in \cM_{X, \sigma}$, and a Borel measurable set $E \subseteq \cB(X)$. 
 
-For any $x \in X$ we define the \textbf{first return time} $\tau_E(x)$ to be the first time $n$ that $\sigma^n(x) \in E$. Now we consider the set $\boldsymbol{E^\infty}$ of points that return infinitely often to $E$. This lets us define the \textbf{first return map} $\sigma_E(x): E^\infty \rightarrow E^\infty$ by $x \mapsto \sigma^{\tau_E(x)}(x)$, which sends a point to wherever it is when it first returns to $E$. We can use the first return map to push the measure of $X$ onto $E$ in the following way. Define the \textbf{induced measure} $i(\mu) = \mu_E(F) = \frac{\mu(F \cap E)}{\mu(E)}$ which only measures sets that intersect with $E$. This way of restricting $\mu$ to $E$ is very similar to conditional probability, and the definition looks almost identical to Baye's theorem. Now we will establish some facts about the induced measure. 
+For any $x \in X$ we define the \textbf{first return time} $\tau_E(x)$ to be the first time $n \ge 1$ that $\sigma^n(x) \in E$. Now we consider the set $\boldsymbol{E^\infty}$ of points of $E$ that return infinitely often to $E$. This lets us define the \textbf{first return map} $\sigma_E(x): E^\infty \rightarrow E^\infty$ by $x \mapsto \sigma^{\tau_E(x)}(x)$, which sends a point to wherever it is when it first returns to $E$. We can use the first return map to push the measure of $X$ onto $E$ in the following way. Define the \textbf{induced measure} $i(\mu) = \mu_E(F) = \frac{\mu(F \cap E)}{\mu(E)}$ which only measures sets that intersect with $E$. This way of restricting $\mu$ to $E$ is very similar to conditional probability, and the definition looks almost identical to Baye's theorem. Now we will establish some facts about the induced measure. 
 
 \begin{fact}
   $\mu(E^\infty) = \mu(E)$ (by Poincare recurrence.)
 \end{fact}
 
 \begin{fact}
-  $\mu_F(E)$ is a probability measure on $E$.
+  $\mu_E$ is a probability measure on $E$.
 \end{fact}
 
 \begin{fact}
   If $\mu$ is ergodic then $\mu_E$ is ergodic.
 \end{fact}
 
-Let $\cN_{E^\infty, \sigma_E} = \{\nu \in \cM_{E^\infty, \sigma_E} : \int \sigma_E(x) d\nu(x) < \infty \}$, that is, the measures where the integral over the first return map is finite. Then we define the \textbf{lift} $l(\nu) = \frac{\nu}{\nu(x)}$, which gives us a natural bijection,
+Let $\cN_{E^\infty, \sigma_E} = \{\nu \in \cM_{E^\infty, \sigma_E} : \int \tau_E(x) d\nu(x) < \infty \}$, that is, the measures where the integral over the first return time is finite. We define $$\tilde{\nu}(B) = \Sigma_{k=0}^{\infty}\nu(\{x : \tau_E(x) > k\} \cap f^{-k}(B)).$$ Then we define the \textbf{lift} of $\nu$: $l(\nu) = \frac{\tilde{\nu}}{\tilde{\nu}(X)}$, which gives us a natural bijection,
 
 \begin{prop}
   $i(l(\nu)) = \nu$. In other words,
-
-  
+  \begin{figure}[H]
+    \centering 
+    $$\begin{tikzpicture}
+      \node (A) at (-1.3, 0)   {$\cM_{X, \sigma}$};
+      \node (B) at (1.5, 0)    {$\cN_{E^\infty, \sigma_E}$};
+      \node (C) at (-.75, .2)  {};
+      \node (D) at (.75, -.2) {};
+      \node (E) at (.75, .2)   {};
+      \node (F) at (-.75,-.2)  {};
+        
+      \draw[->] (C) -- node[above] {$i$}      (E);
+      \draw[<-] (F) -- node[below] {$l$} (D);
+    \end{tikzpicture}$$ 
+  \end{figure}
+  is a natural bijection.
 \end{prop}
+
+Being so convinced that we can induce the new dynamical system on $E^\infty$ and recover information from it due to the bijection, we give several facts about the relationship between important properties of the original and induced system.
+
+\begin{fact}
+  The entropy of the induced measure is $h_{i(\mu)}(\sigma_E) = \frac{h_\mu(\sigma)}{\mu(E)}.$
+\end{fact}
+
+\begin{fact}
+  Given some observable $\phi \in C(X, \RR)$, we can define an observable for $E^\infty$,
+  $$\phi_E = \Sigma_{k=0}^{\tau_E(x)-1}\phi(\sigma^k(x))$$
+
+  which gives a map from the integral with respect to the orginal measure to the integral with respect to the induced measure, 
+  $$\int\phi d\mu \mapsto \int_E \left(\Sigma_{k=0}^{\tau_E(x)-1}\phi(\sigma^k(x))\right)d\mu = \frac{\int_E \phi d\mu}{\mu(E)} = \int\phi_E d\mu_E$$
+  ???
+\end{fact}
+\begin{fact}
+  The free energy of the induced measure is $F_{\mu_E, \sigma_E}(\phi_E) = \frac{F_{\mu, \sigma}(\phi)}{\mu(E)}.$
+\end{fact}
 
 
 \subsection{Entropy of Coded Shifts}\cite[L12]{wolf}
@@ -402,6 +422,7 @@ Let $\cN_{E^\infty, \sigma_E} = \{\nu \in \cM_{E^\infty, \sigma_E} : \int \sigma
   \item I don't understand the paragraph about how to decompose a general measure into ergodic measures.
   \item definition of basin seems wrong.
   \item what's that about shift spaces having unique equilibrium state?
+  \item defining the induced integral over an observable?
 \end{enumerate}
 
 \appendix

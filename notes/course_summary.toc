@@ -10,7 +10,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\tocsubsection {}{2.3}{Coded Shifts}}{1}{subsection.2.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\tocsubsection {}{2.4}{Topological Entropy in Shift Spaces}}{2}{subsection.2.4}%
+\contentsline {subsection}{\tocsubsection {}{2.4}{Topological Entropy in Shift Spaces}}{1}{subsection.2.4}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\tocsection {}{3}{Computability of shift spaces}}{2}{section.3}%
 \defcounter {refsection}{0}\relax 
@@ -18,26 +18,24 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\tocsubsection {}{3.2}{Computability of Sofic Shifts and SFTs}}{2}{subsection.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\tocsubsection {}{3.3}{Crash course in Measure Theory}}{2}{subsection.3.3}%
+\contentsline {subsection}{\tocsubsection {}{3.3}{Crash Course in Ergodic Theory}}{2}{subsection.3.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\tocsubsection {}{3.4}{Crash Course in Ergodic Theory}}{2}{subsection.3.4}%
+\contentsline {subsection}{\tocsubsection {}{3.4}{Connecting Topological and Measure Theoretic Entropy}}{3}{subsection.3.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\tocsubsection {}{3.5}{Connecting Topological and Measure Theoretic Entropy}}{3}{subsection.3.5}%
+\contentsline {subsection}{\tocsubsection {}{3.5}{Entropy of Coded Shifts}}{5}{subsection.3.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\tocsubsection {}{3.6}{Entropy of Coded Shifts}}{5}{subsection.3.6}%
+\contentsline {subsection}{\tocsubsection {}{3.6}{Examples of Computing Entropy of Shift Spaces}}{5}{subsection.3.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\tocsubsection {}{3.7}{Examples of Computing Entropy of Shift Spaces}}{5}{subsection.3.7}%
+\contentsline {subsection}{\tocsubsection {}{3.7}{Questions}}{6}{subsection.3.7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\tocsubsection {}{3.8}{Questions}}{5}{subsection.3.8}%
+\contentsline {section}{\tocsection {Appendix}{A}{Quick Reference Sheet}}{6}{appendix.A}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\tocsection {Appendix}{A}{Quick Reference Sheet}}{5}{appendix.A}%
+\contentsline {subsection}{\tocsubsection {}{A.1}{Shift Spaces}}{6}{subsection.A.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\tocsubsection {}{A.1}{Shift Spaces}}{5}{subsection.A.1}%
+\contentsline {subsection}{\tocsubsection {}{A.2}{Measure and Ergodic Theory}}{6}{subsection.A.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\tocsubsection {}{A.2}{Measure and Ergodic Theory}}{5}{subsection.A.2}%
+\contentsline {subsection}{\tocsubsection {}{A.3}{Computability}}{6}{subsection.A.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\tocsubsection {}{A.3}{Computability}}{5}{subsection.A.3}%
+\contentsline {section}{\tocsection {Appendix}{B}{Lecture index}}{6}{appendix.B}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\tocsection {Appendix}{B}{Lecture index}}{5}{appendix.B}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\tocsection {Appendix}{}{References}}{6}{section*.2}%
+\contentsline {section}{\tocsection {Appendix}{}{References}}{6}{section*.3}%
