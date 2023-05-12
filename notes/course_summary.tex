@@ -561,7 +561,23 @@ Being so convinced that we can induce the new dynamical system on $E^\infty$ and
 \item[thm:] $\cM_E$ the extreme points of $\cM_X$ are precisely the ergodic measures.
 \item[def:] the \underline{basin} of a measure is the set $\cB(\mu) = \{x \in X : \lim_{n \rightarrow \infty} \sum_{k=0}^{n-1}\delta_{f^{k}(x)} = \mu\}$ (TODO: how is this related to the time average?)
 \item[def:] \underline{measure of maximal entropy} is a $\mu$ s.t. $h_\mu(f) = h_{top}(f)$.
+\item[thm:] (Poincare Recurrence) Let $\mu \in \cM_X$, $A\in \cB(X)$ with $\mu(A) > 0$. The measure on the set of points that return to $A$ finite times is 0. i.e. $\mu(A) = \mu(\{x \in A : \text{return to $A$ infinitely often }\}$).
+\item[thm:] (Birkhoff Ergodic) Let $\mu \in \cM_X$, and $\phi \in L^1(X,\mu)$. The time average $\phi_f(x) = \lim_{n \rightarrow \infty}\frac{1}{n} \sum_{k=0}^{n-1}\phi(f^k(x))$ exists for $x$ $\mu.a.e$ and if $\mu$ is ergodic then the time average equals the space average  $\mu_f(x) = \int \phi d\mu$ for almost every $x$.
+\item[thm:] If $\mu$ is ergodic then $\mu(\cB(\mu)) = 1$.  
 \end{itemize}
+
+\textbf{Entropy of Coded Shifts}
+\begin{itemize}[leftmargin=2.3em]
+  \item[idea:] The method of computing entropy for SFTs and Sofic shifts relies on a matrix describing the shift, and Coded shifts are countable and can't be described this way.
+  \item[idea:] Topological entropy can be given in terms of topological pressure, and topological pressure is equivalent for an induced system. So we induce to a system where we know how to compute measure theoretic entropy, and since measure theoretic entropy and topological pressure are related this enables us to compute the  topological entropy of the original system.
+  \item[def:] \underline{topological pressure}
+  \item[def:] \underline{free energy}
+  \item[def:] \underline{equillibrium state}
+  \item[thm:] Variational Principle I:  
+  \item[thm:] Variational Principle II:
+  \item[thm:] Inducing   
+\end{itemize}
+
 
 % -----------------------
 \subsection{Computability}
@@ -569,7 +585,20 @@ Being so convinced that we can induce the new dynamical system on $E^\infty$ and
 \end{multicols}
 }
 
+TODO
+\begin{enumerate}
+  \item finish adding computability in shift spaces content
+  \item finish cheat sheet for Computability
+  \item finish cheat sheet for entropy of coded shifts 
+  \item finish cheat sheet for shift space basics
+  \item add fundamentals of shift spaces content 
+  \item go back and add all proofs
+  \item read review paper
+\end{enumerate}
 
+\begin{enumerate}
+  \item subadditivity??
+\end{enumerate}
 
 \newpage
 \section{Lecture index}  
