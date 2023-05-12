@@ -488,85 +488,85 @@ Being so convinced that we can induce the new dynamical system on $E^\infty$ and
 
 % ----------------------------------------------
 \appendix
-
 \section{Quick Reference Sheet}
 {\setlength{\parindent}{0pt} 
-\hrule
 \begin{multicols}{2}
-\subsection{Shift Spaces}
-\begin{itemize}[leftmargin=*]
-\item[-] def: TODO  
-\end{itemize}
 
+% ----------------------
+\subsection{Shift Spaces}
+\begin{itemize}[leftmargin=2.3em]
+\item[def:] TODO  
+\end{itemize}
 
 \textbf{SFTs}  
-\begin{itemize}[leftmargin=*]
-\item[-] idea: described by a transition matrix (adjacency matrix or graph with 1-1 labeling)  
-
-\item[-] OR: defined by a language OR a forbidden word set  
-
-\item[-] def:  
-
-
-\item[-] every SFT is topologically conjugate to a 1-step SFT (1-step on the bottom of the commutative square by the higher block representation w/ mad forbidden word len 2)  
-
-\item[-] e.g. Full shift   
-
-\item[-] e.g. Golden mean shift  
+\begin{itemize}[leftmargin=2.3em]
+\item[idea:] described by a transition matrix (adjacency matrix or graph with 1-1 labeling)  
+\item[idea:] defined by a language OR a forbidden word set  
+\item[def:]   
+\item[thm:] every SFT is topologically conjugate to a 1-step SFT (1-step on the bottom of the commutative square by the higher block representation w/ mad forbidden word len 2)  
+\item[e.g.] Full shift   
+\item[e.g.] Golden mean shift  
 \end{itemize}
 
-
 \textbf{Sofic shifts}
-\begin{itemize}[leftmargin=*]
-  \item[-] idea: described by a finite labeled directed graph over a finite alphabet
-  \item[-] def: 
-  \item[-] e.g. Even shift TODO
-  \item[-] Sofic Shifts are always factors of some SFT. (Sofic on the bottom of the commutative square).
+\begin{itemize}[leftmargin=2.3em]
+  \item[idea:] described by a finite labeled directed graph over a finite alphabet
+  \item[def:]  
+  \item[e.g.] Even shift TODO
+  \item[thm:] Sofic Shifts are always factors of some SFT. (Sofic on the bottom of the commutative square).
 \end{itemize}
 
 \textbf{Coded shifts}
-\begin{itemize}[leftmargin=*]
-  \item[-] idea: described by an irreducible countable directed labeled graph over a finite alphabet.
-  \item[-] OR: described by countable generating set 
-  \item[-] def: Let $\cG$ be a TODO: define unique representation
-  \item[-] e.g. S-gap shifts TODO
-  \item[-] e.g. Beta shifts TODO
-  \item[-] the class of coded shifts contains both sofic shifts and SFTs.
+\begin{itemize}[leftmargin=2.3em]
+  \item[idea:] described by an irreducible countable directed labeled graph over a finite alphabet.
+  \item[idea:] described by countable generating set 
+  \item[def:] Let $\cG$ be a TODO: define unique representation
+  \item[e.g.] S-gap shifts TODO
+  \item[e.g.] Beta shifts TODO
+  \item[thm:] the class of coded shifts contains both sofic shifts and SFTs.
 \end{itemize}
 
 \textbf{Topological entropy of shifts}
-\begin{itemize}[leftmargin=*]
-  \item[-] idea: count distinguishable orbits under some margin of measurement like pixels on a screen, 
-  \item[-] OR: how surprised are you by the next letter? what is the information exponential growth rate as words get longer
-  \item[-] general def: exponential growth of the maximal $n-\epsilon$ separated set
-  \item[-] def for shift spaces: Let $X \in \Sigma_{\inf}$ be a shift space. Then $h_{top}(X) = \lim_{n \rightarrow \infty} \frac{1}{n} \log |\cL_n(X)|$.
-  \item[-] the entropy of an SFT described by an irreducible transition matrix $A$ is $\log \lambda$ where $\lambda$ is the Perron eigenvalue of $A$.
-  \item[-] the entropy of an SFT described by a matrix which is the product of irreducible transition matrices $A_i$ is $\log \lambda_i$ where $\lambda_i$ is the max of the perron eigenvalues of the $A_i$.
+\begin{itemize}[leftmargin=2.3em]
+  \item[idea:] count distinguishable orbits under some margin of measurement like pixels on a screen, 
+  \item[idea:] how surprised are you by the next letter? what is the information exponential growth rate as words get longer
+  \item[def:] (general) exponential growth of the maximal $n-\epsilon$ separated set
+  \item[def:] (shifts) Let $X \in \Sigma_{\inf}$ be a shift space. Then $h_{top}(X) = \lim_{n \rightarrow \infty} \frac{1}{n} \log |\cL_n(X)|$.
+  \item[thm:] the entropy of an SFT described by an irreducible transition matrix $A$ is $\log \lambda$ where $\lambda$ is the Perron eigenvalue of $A$.
+  \item[thm:] the entropy of an SFT described by a matrix which is the product of irreducible transition matrices $A_i$ is $\log \lambda_i$ where $\lambda_i$ is the max of the perron eigenvalues of the $A_i$.
 \end{itemize}
-\end{multicols}
-\hrule
+
+
+% -------------------------
 \subsection{Ergodic Theory}  
-\begin{multicols}{2} 
-  \begin{itemize}[leftmargin=*]
+\begin{itemize}[leftmargin=*]
   \item[-] 
 \end{itemize}
 
-\textbf{measure theory basics}
-\begin{itemize}[leftmargin=*]
-  \item[-] Sigma algebra: $X$ a topological space, $\Sigma \subseteq P(X)$ is a sigma algebra if 1) $X, \phi \in \Sigma$, 2) arbitrary unions are in $\Sigma$, 3) complements are in $\Sigma$. (2 and 3 $\Rightarrow$ arbitrary intersections)
-  \item[-] Borel Sigma algebra: $\cB$ the smallest sigma algebra which contains all open sets according to the provided topology. 
-  \item[-] measure: a function $\mu: \cB \rightarrow \RR_+$ such that 1) for a pairwise disjoint set of $A_i \in \cB$, $\mu(\cup A_i) = \sum \mu A_i$. TODO what else 
-  \item[-] $\cM_{X,T}$: for $(X,d)$ compact metric space, $T: X \rightarrow X$, it is the set of all invariant Borel probability measures on $X$, i.e. $\mu(A) = \mu(T^{-1}(A))$
-  \item[-] $\cM_X$ has the weak-* topology: the smallest topology where $\mu \rightarrow \int \phi d\mu$ is continuous for all $\phi \in C(X, \RR)$. (i.e. $\mu_n \rightarrow \mu$ iff. $\int \phi d\mu_n \rightarrow \int \phi d\mu$)
+\textbf{Measure theory basics}
+\begin{itemize}[leftmargin=2.3em]
+  \item[def:] let $X$ a topological space, $\Sigma \subseteq P(X)$ is a \underline{sigma algebra} if 1) $X, \phi \in \Sigma$, 2) arbitrary unions are in $\Sigma$, 3) complements are in $\Sigma$. (2 and 3 $\Rightarrow$ arbitrary intersections)
+  \item[def:] dthe \underline{Borel sigma algebra} is $\cB$ the smallest sigma algebra which contains all open sets according to the provided topology. 
+  \item[def:] a \underline{measure} is a function $\mu: \cB \rightarrow \RR_+$ such that 1) for a pairwise disjoint set of $A_i \in \cB$, $\mu(\cup A_i) = \sum \mu (A_i)$. TODO what else 
+  \item[def:] \underline{$\cM_{X,T}$} for $(X,d)$ compact metric space, $T: X \rightarrow X$, it is the set of all invariant Borel probability measures on $X$, i.e. $\mu(A) = \mu(T^{-1}(A))$
+  \item[thm:] $\cM_X$ has the weak-* topology: the smallest topology where $\mu \rightarrow \int \phi d\mu$ is continuous for all $\phi \in C(X, \RR)$. (i.e. $\mu_n \rightarrow \mu$ iff. $\int \phi d\mu_n \rightarrow \int \phi d\mu$)
+  \item[thm:] $\cM_X$ is compact and non-empty in the weak-* topology. 
+  \item[thm:] the weak-* topology is metrizable by the Wasserstein-Kantorovich metric between probability distributions. 
 \end{itemize}
-\end{multicols}
 
-\hrule
+\textbf{Relevant Ergodic Theory}
+\begin{itemize}[leftmargin=2.3em]
+\item[def:] a set is \underline{convex} if drawing a line between any two points stays within the set. For $\cM_X$,  $\mu_1, \mu_2 \in \cM_X \Rightarrow \alpha\mu_1 + (1-\alpha)\mu_2 \in \cM_X$ for $\alpha \in [0,1]$.
+\item[def:] $\mu \in M_X$ is \underline{ergodic} if $\mu(A) = 1$ or $\mu(A) = 0$ for all $T$-invariant subsets $A$.
+\item[thm:] $\cM_E$ the extreme points of $\cM_X$ are precisely the ergodic measures.
+\item[def:] the \underline{basin} of a measure is the set $\cB(\mu) = \{x \in X : \lim_{n \rightarrow \infty} \sum_{k=0}^{n-1}\delta_{f^{k}(x)} = \mu\}$ (TODO: how is this related to the time average?)
+\item[def:] \underline{measure of maximal entropy} is a $\mu$ s.t. $h_\mu(f) = h_{top}(f)$.
+\end{itemize}
 
+% -----------------------
 \subsection{Computability}
 
-
-
+\end{multicols}
 }
 
 
