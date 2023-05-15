@@ -51,6 +51,7 @@
 \theoremstyle{definition}
     \newtheorem{defn}[thm]{Definition}
     \newtheorem{remark}{Remark}
+    \newtheorem{example}[thm]{e.g.}
 
 
 %%% Environments %%%--------------------------------------------------------- 
@@ -158,7 +159,7 @@
 % ------------------------------------
 \section{Fundamentals of Shift Spaces}
 % ------------------------------------
-\cite{lind-marc}[C.1,C.2]
+
 
 % Key realizations: 
 % \begin{itemize}
@@ -263,9 +264,86 @@
 % co-finite case of 1.2.6 is an sft 
 
 % - if you have a lift of a blockmap through a higher alphabet that gives you a 1-block code, why doesn't this recoding not in general give you a 1-block coding for the inverse? Also, what does it mean for the inverse?
-\subsection{SFTs}
+
+For the entirety of this document we assume a finite alphabet $\cA$. \cite{lind-marc}[C.1,C.2]
+
+\begin{defn}[Shift Space] \cite[L.2]{wolf} We give two equivalent definitions.
+  \begin{itemize}
+    \item A \textit{shift space $X$} is a subset of the full shift $\Sigma_d^{\pm}$ that is $\sigma$-invariant and closed.
+    \item Shift spaces and \textit{languages} are the same thing. A language is a set $\cL$ of finite words where subwords are also in the language and any word can be extended into a longer word in the language. 
+  \end{itemize}
+\end{defn}
+
+\subsection{Shifts of Finite Type}
+\begin{defn}[SFT]\cite[L.2]{wolf}
+  A \textit{shift of finite type} or SFT is a subshift whose language is defined by a finite set of forbidden words, $\cF = \cL(\Sigma_d^{\pm}) \ \cL(X)$. An arbitrary set of words can have words added to it to be made into a forbidden word set whose complement is a language. We say an SFT is an $m$-step SFT if the longest word in $\cF$ has length $m+1$.
+\end{defn}
+
+\begin{example}[Full Shift]
+  
+\end{example}
+
+\begin{example}[Golden Mean Shift]
+  
+\end{example}
+
+\begin{example}[Higher Coded Block Shift]
+  
+\end{example}
+
+\begin{thm}\cite[L.2]{wolf}
+  Every SFT is conjugate to a $1$-step SFT.
+\end{thm}
+
+\begin{proof}
+  Given an $m$-step SFT the $m^{th}$ higher block representation is a 1-step SFT that is topologically conjugate by the map that takes $X$ to $X^{[m]}$.
+\end{proof}
+
 \subsection{Sofic Shifts}
-\subsection{Coded Shifts}\cite[L8]{wolf}
+\begin{defn}[Sofic Shift]\cite[L.3]{wolf}
+  A sofic shift $X$ is a shift that is described by a finite, directed, labeled graph $\cG = (G, l)$. 
+\end{defn}
+
+\begin{example}[Even Shift]
+  
+\end{example}
+
+\begin{defn}
+  Let $f: X \rightarrow X$ and $g: Y \rightarrow Y$ be dynamical systems. We say $g$ is a \textit{factor} of $f$ if there exists a continuous surjection $h: X \rightarrow Y$ such that $g \circ h = h \circ f$. We say that $f$ is an \textit{extension} of $g$. (TODO:square diagram)
+\end{defn}
+
+\begin{thm}\cite[L.4]{wolf}
+  $X$ is a sofic shift if and only if $X$ is a factor of an SFT.
+\end{thm}
+
+\begin{example}
+  The labeling map $l$ is a factor map.
+\end{example}
+
+\subsection{Coded Shifts}
+\begin{defn}[Coded Shift]\cite[L.8]{wolf}
+  We give two equivalent definitions. 
+  \begin{itemize}
+    \item A coded shift is a shift $X = \overline{X_\cG}$ described by the closure of concatenations of a countable set of generating words $\cG$.
+    \item A coded shift is a shift $X_\cG$ described by a countable, directed labeled graph $\cG$. 
+  \end{itemize}
+\end{defn}
+
+\begin{example}[S-Gap Shift]\cite[L.8]{wolf}
+  
+\end{example}
+
+\begin{example}[Context-Free Shift]\cite[L.4]{wolf}
+  
+\end{example}
+
+\begin{example}[Beta Shifts]\cite[L.8, L.9]{wolf}
+  
+\end{example}
+
+\begin{thm}\cite[L.8]{wolf}
+  Every coded shift is described by a uniquely representable generating set.
+\end{thm}
 
 \subsection{Topological Entropy in Shift Spaces}\cite[L5]{wolf}
 
@@ -376,7 +454,7 @@ These three propositions tell us that $\Sigma_{inf}$ is a complete, compact metr
   Given $\varphi$ we can compute $\frac{1}{n}log|\cL_n(X)|$ at any precision. We can select a rational number $r_n$ such that 
   $$\frac{1}{n}\log|\cL_n(X)| < r_n \leq \frac{1}{n}|\cL_n(X)|+2^{-n}.$$
 
-  Define $q_n = \min\{r_1, \dots, r_n\}$. Then $(q_n)$ is a nondecreasing computable sequence of rational numbers which converges from above to $h_{top}(X)$ (because $h_{top}(X) = \inf_{n}\frac{1}{n}\log|\cL_n(X)|$.)
+  Define $q_n = \min\{r_1, \dots, r_n\}$. Then $(q_n)$ is a nonincreasing computable sequence of rational numbers which converges from above to $h_{top}(X)$ (because $h_{top}(X) = \inf_{n}\frac{1}{n}\log|\cL_n(X)|$.)
 \end{proof}
 
 \begin{thm}
