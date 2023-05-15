@@ -151,7 +151,13 @@
 \section{Introduction}
 % TODO
 
+
+
+
+\newpage
+% ------------------------------------
 \section{Fundamentals of Shift Spaces}
+% ------------------------------------
 \cite{lind-marc}[C.1,C.2]
 
 % Key realizations: 
@@ -263,11 +269,17 @@
 
 \subsection{Topological Entropy in Shift Spaces}\cite[L5]{wolf}
 
-\section{Computability of shift spaces}
+
+
+\newpage
+
+% -------------------------------------
+\section{Computability of entropy of shift spaces}
+% -------------------------------------
 
 Our goal in this section is to define the notion of computability at a point, and then use that notion to understand the computability of entropy of shift spaces. For SFTs and sofic shifts it is sufficient to work with topological entropy as we defined in the last section. However to understand coded shifts we will need to enter the world of measure-theoretic entropy, and we'll also need a few important results of ergodic theory in order to be able to move between these two version of entropy.
 
-\subsection{Introduction to Computability}\cite[L6, L7]{wolf}   
+\subsection{Computability in the Real Numbers}\cite[L6, L7]{wolf}   
 We begin by discussing the ideas of computability in the context of $\RR$ with the usual norm $||$. 
 \begin{defn}
   Let $x \in \RR$. An \textit{oracle} of $x$ is a function $\varphi: \NN \rightarrow \QQ$ such that $|\varphi(n) - x|< 2^{-n}$. 
@@ -292,23 +304,42 @@ For example, I can write a computer program that takes a desired degree of preci
 The proof idea is to let the upper and lower turing machines run until they are within $2^{-n}$ of each other. Now that we have defined computability of a real number, we would like to have a notion of computability of a function.
 
 \begin{defn}
-    Let $S \subseteq \RR^n$. We say $g: S \rightarrow \RR$ is \textit{computable} if there exists a turing machine $\chi$ such that for all $x \in S$, oracles $\varphi$ of $x$, and $n \in \NN$ that $\chi(\varphi, n) \in \QQ$ and $\chi(\varphi, n) - g(x)| < 2^{-n}$.
+    Let $S \subseteq \RR^n$. We say $g: S \rightarrow \RR$ is \textit{computable} if there exists a turing machine $\chi$ such that for all $x \in S$, oracles $\varphi$ of $x$, and $n \in \NN$ that $\chi(\varphi, n) \in \QQ$ and $|\chi(\varphi, n) - g(x)| < 2^{-n}$.
 \end{defn}
 
+\subsection{Computability in a general metric space}
+Now that we have built an intuition for the definitions of computability of a real number, and functions to the real numbers, we'll describe when we can do this in a general metric space. Here the set $S$ acts for $X$ as $\QQ$ does for $\RR$. 
 
+\begin{defn}
+  Let $(X, d_x)$ be a metric space with a countable, dense subset $S$ (which makes the the space complete and separable). Then $(X, d_X, S)$ is a \textit{computable metric space} if there exists a turing machine $\chi: \NN\times\NN \times \ZZ \rightarrow \QQ$ such that $|\chi(i,j,n) - d_X(s_i, s_j)| < 2^{-n}$.
+\end{defn}
 
+\begin{defn}
+  Let $(X, d_X, S)$ be a computable metric space. We say a $\varphi: \NN \rightarrow \NN$ is an \textit{oracle} of $x \in X$ if $d_X|\varphi(s_n), x| < 2^{-1}$. 
+\end{defn}
 
-\newpage % -------------------------
+\begin{defn}
+  We say a function $g: Y \subseteq X \rightarrow \RR$ is computable if there exists a turing machine $\chi: \NN \times \NN \rightarrow \QQ$ such that for all $x \in Y$ and oracles $\varphi$ of $x, |\chi(\varphi,n)-g(x)| < 2^{-n}$.
+\end{defn}
+
+\begin{defn}[Computability at a point]
+   Let $(X, d_X, S)$ be a computable metric space, and $Y \leq X$, $x_0 \in X$. We say a function $g: Y \rightarrow \RR$ is \textit{computable at $x_0$} if there exists a turing machine $\chi: \NN \times \NN \times \NN \rightarrow \QQ$ such that for any oracle $\varphi$ of $x_0$:
+   \begin{itemize}
+    \item[ ] Let $l_{\varphi, n}$ be the maximal precision that $\chi$ queries in the calculation of $\chi(\varphi, n)$. Then for all $y\in S$ such that there exists an oracle $\varphi'$ for $y$ which coincides with $\varphi$ up to precision $l_{\varphi, n}$ we have $\chi(\varphi, n) = \chi(\varphi', n)$ and $|\chi(\varphi, n) - g(y)| < 2^{-n}$.
+   \end{itemize}
+\end{defn}
+
+\subsection{The set of shift spaces is a metric space}
 
 To talk about computability in shift spaces, we need to first set up the space of all shift spaces and verify that it has some reasonable properties. We want to show that the set of all shift spaces $\Sigma_{inf}$ is a metric space that is complete and compact. Then we can  introduce the notion of computability in general metric spaces. From there we will have the notion of $\Sigma_{inf}$ being computable and we will be able to then discuss the computability of certain properties of shift spaces, like entropy.
 
 \begin{prop}
   Let $X, Y \in \Sigma_{inf}$ be shift spaces. Then
   $$d_S(X,Y) = \begin{cases}
-      0 & X = Y \\ 
-      \frac{1}{2}^l & l = \inf \{w_l \in \cL(X) \cup \cL(Y) \setminus \cL(X) \cap \cL(Y)\}
+    2^{-n} & n = \inf \,\{\;n : \cL_n(X)\neq \cL_n(Y)\;\} \\
+    0 & X = Y \\  
   \end{cases}$$
-  is a metric for $\Sigma_{inf}$. That is, $l$ is smallest word length that causes $\cL_l(X) \neq \cL_l(Y)$, and the smaller this number the further apart the spaces are.
+  is a metric for $\Sigma_{inf}$. 
 \end{prop}
 
 \begin{prop}
@@ -319,18 +350,55 @@ To talk about computability in shift spaces, we need to first set up the space o
   The metric space $(\Sigma_{inf}, d_S)$ is compact.
 \end{prop}
 
-These three propositions tell us that $\Sigma_{inf}$ is a complete, compact metric space with metric $d_S$. 
+These three propositions tell us that $\Sigma_{inf}$ is a complete, compact metric space with metric $d_S$. We take it as a fact that it becomes a computable metric space with the sense set $S$ being the set of SFTs.
+
+\subsection{Computability in the metric space of all shifts}\cite[L7]{wolf}  
+
+\begin{defn}
+  Let $X \in \Sigma_{inf}$. We say $\varphi$ is an \textit{oracle} of $X$ if $\varphi(n) = \cL_{2n+1}(X)$. i.e. increasing precision means giving the language for increasingly large words.
+\end{defn}
+
+\begin{defn}
+  We say a shift $X \in \Sigma_{inf}$ is \textit{computable} if there exists a turing machine $\chi$ which is an oracle of $X$.
+\end{defn}
+
+\begin{defn}
+  We say $X \in \Sigma_{inf}$ is \textit{upper semi-computable} if there exists a turing machine $\chi: \NN \times \NN \rightarrow \QQ$ such that the sequence $\{\chi(n,k)\}_k$ is a nonincreasing finite collection of words of length $2n+1$ such that $\chi(n,k) = \cL_{2n+1}(X)$ for $k$ large enough.
+\end{defn}
 
 
 
+\begin{prop}
+  $h_{top}(X)$ is upper semi-computable for any $X \in \Sigma_{inf}$ given by an oracle.
+\end{prop}
+
+\begin{proof}
+  Given $\varphi$ we can compute $\frac{1}{n}log|\cL_n(X)|$ at any precision. We can select a rational number $r_n$ such that 
+  $$\frac{1}{n}\log|\cL_n(X)| < r_n \leq \frac{1}{n}|\cL_n(X)|+2^{-n}.$$
+
+  Define $q_n = \min\{r_1, \dots, r_n\}$. Then $(q_n)$ is a nondecreasing computable sequence of rational numbers which converges from above to $h_{top}(X)$ (because $h_{top}(X) = \inf_{n}\frac{1}{n}\log|\cL_n(X)|$.)
+\end{proof}
+
+\begin{thm}
+  The function $X \rightarrow h_{top}(X)$ is computable at $X$ iff. $h_{top}(X) = 0$.
+\end{thm}
+
+\begin{proof}
+  Case 1: $h_{top}(X) > 0$. We will show that the function is not computable at $X$ by finding an $SFT$ arbitrarily close to $X$ that breaks the definition of computability at a point. Fix $n \in \NN$ (this is the precision input to the Turing machine). The context we're working in is the computable metric space $(\Sigma_{inf}, d_{inf}, SFTs)$. Since SFTs are dense, there exists an SFT $X_\cF$ such that $d_{inf}(X, X_\cF) < 2^{-n}$, i.e. $\cL_n(X) = \cL_n(X_\cF)$. We can just consider the transitive components $X_1 \dots X_k$ of $X_\cF$. Transitive SFTs have dense periodic points so we can find a periodic orbit $p_i$ for each $X_i$ such that $\cL_{2n+1}(p_i) = \cL_{2n+1}(X_i)$. Now we construct an SFT $Y = \bigcup_{i=1}^k p_i$. We know the entropy of $Y$ because the number of distinguishable orbits is fixed under the iteration of the shift map, so $h_{top}(Y) = 0$. This shift $Y$ is a point that breaks the definition of computability at a point, since oracles of shifts are given by languages and we guaranteed $X$ and $Y$ have the same language up to an arbitrary precision $n$, yet the function maps $h_{top}{X} > 0$ and $h_{top}(Y) = 0$. So there can't exist a turing machine according to the definition because we will always be able to produce one of these points with $0$ entropy close to $X$.
+
+  Case 2: $h_top(X) = 0$. We will show $X$ satisfies the definition of computability at a point. First define $h(m) = \min\{\frac{1}{k}log|\cL_k(X) : k \leq m\}$. By the previous proposition $\lim_m \rightarrow \infty h(m)$ converges to $h_top(X) = 0$ from above. Now fix $n \in \NN$. There exists an $m \in \NN$ such that $h(m) \leq 2^{-n}$, which can be computed. Let $Y$ be a subshift whose language coincides with the language of $X$ up to $n$, i.e. $\cL_m(Y) = \cL_m(X)$. Then 
+  $$0 \leq h_{top}(Y) \leq h(m) \leq 2^{-n}.$$
+  The middle inequality holds because $h_Y(m)$ converges to $h_top(Y)$ from above, and $h_X(m) = h_Y(m)$. So $h_X(m)$ is an upper bound for $h_{top}(Y)$. This fulfills the last part of the definition of computability at a point. 
+\end{proof}
 
 % check notes on computability
 
-\subsection{Computability of Sofic Shifts and SFTs}\cite[L7]{wolf}  
 
-TODO: FIRST THING: Computability in shift spaces specifically
 
-% check notes on computability
+\newpage
+% ------------------------------------------------
+\section{Calculating the entropy of coded shifts}
+% ------------------------------------------------
 
 \subsection{Crash Course in Ergodic Theory}\cite[L10]{wolf} \\
 Let $f$ be a generic dynamical system. Ergodic theory is the study of $f$-invariant measures. We say a measure is an \textbf{ergodic measure} if for all $f$-invariant subsets $A$, either $\mu(A) = 0$ or $\mu(A) = 1$. These ergodic measures pick out a particular invariant subset to give full measure, which creates a notion of decomposition into smaller dynamical systems. Any measure is a convex sum of ergodic measures, so it also gives us a way to study measures by their more neatly behaved components. We will go about identifying ergodic measures by the fact that they are the extreme points in the space of measures. 
@@ -483,13 +551,15 @@ Being so convinced that we can induce the new dynamical system on $E^\infty$ and
   \item what's that about shift spaces having unique equilibrium state?
   \item defining the induced integral over an observable?
 \end{enumerate}
+
+
+
+
 \newpage
-
-
-
-
-% ----------------------------------------------
+% -------
 \appendix
+% -------
+
 \section{Quick Reference Sheet}
 {\setlength{\parindent}{0pt} 
 \begin{multicols}{2}
